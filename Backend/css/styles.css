@@ -1,0 +1,992 @@
+/* 
+ * MindBalance - Main Stylesheet
+ * A comprehensive CSS framework for consistent UI across the application
+ * This framework provides all styling for the mental health support platform
+ */
+
+/* Reset and Base Styles - Normalize browser inconsistencies */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Include padding and border in width calculations */
+}
+
+:root {
+  /* 
+   * Color Variables
+   * Centralized color scheme to maintain consistent branding
+   * Focused on soothing purples and pinks for a calming user experience
+   */
+  --primary-color: #6a0572;        /* Purple - Primary brand color */
+  --secondary-color: #ffb3c6;      /* Light Pink - Secondary color */
+  --secondary-hover: #ff85a1;      /* Darker Pink - Hover state */
+  --bg-gradient-start: #fde2e4;    /* Light Pink - Gradient start */
+  --bg-gradient-mid: #fad2e1;      /* Mid Pink - Gradient middle */
+  --bg-gradient-end: #bee1e6;      /* Light Blue - Gradient end */
+  --text-color: #495057;           /* Dark Gray - Main text */
+  --text-light: #6c757d;           /* Medium Gray - Secondary text */
+  --white: #ffffff;                /* White */
+  --card-bg: rgba(255, 255, 255, 0.95); /* Card background with opacity */
+  
+  /* 
+   * Status Color System
+   * Consistent status colors for user feedback messages
+   */
+  --success-color: #28a745;        /* Green - Success messages */
+  --warning-color: #ffc107;        /* Yellow - Warning messages */
+  --danger-color: #dc3545;         /* Red - Error messages */
+  --info-color: #17a2b8;           /* Blue - Info messages */
+
+  /* 
+   * Spacing Variables
+   * Consistent spacing scale based on 4px increments
+   * Ensures harmonious spacing relationships throughout the UI
+   */
+  --spacing-xs: 0.25rem;           /* 4px - Extra small spacing */
+  --spacing-sm: 0.5rem;            /* 8px - Small spacing */
+  --spacing-md: 1rem;              /* 16px - Medium spacing */
+  --spacing-lg: 1.5rem;            /* 24px - Large spacing */
+  --spacing-xl: 2rem;              /* 32px - Extra large spacing */
+  --spacing-xxl: 3rem;             /* 48px - Double extra large spacing */
+
+  /* 
+   * Border Radius System
+   * Consistent rounding for UI elements
+   */
+  --border-radius-sm: 8px;         /* Small border radius */
+  --border-radius-md: 12px;        /* Medium border radius */
+  --border-radius-lg: 20px;        /* Large border radius */
+
+  /* 
+   * Shadow System
+   * Consistent elevation effects
+   */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);  /* Subtle shadow */
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Medium shadow */
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.1); /* Pronounced shadow */
+}
+
+/* 
+ * Typography
+ * Base text styling for readability and hierarchy
+ */
+body {
+  font-family: sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-color);
+  background: linear-gradient(to right, var(--bg-gradient-start), var(--bg-gradient-mid), var(--bg-gradient-end));
+  min-height: 100vh; /* Ensure full viewport height */
+}
+
+/* Heading hierarchy with consistent styling */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--primary-color);
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+}
+
+h1 {
+  font-size: 2.5rem; /* Large page titles */
+}
+
+h2 {
+  font-size: 2rem;  /* Section headings */
+}
+
+h3 {
+  font-size: 1.75rem; /* Sub-section headings */
+}
+
+p {
+  margin-bottom: var(--spacing-md); /* Paragraph spacing */
+}
+
+/* Link styling with hover effects */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+a:hover {
+  color: var(--secondary-hover);
+}
+
+/* 
+ * Layout Components
+ * Grid and container systems
+ */
+.container {
+  width: 100%;
+  max-width: 1200px; /* Maximum width for content */
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+/* Flexbox row for column layouts */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+}
+
+.col {
+  flex: 1;
+  padding: 0 15px;
+}
+
+/* Main content container */
+.page-content {
+  padding: var(--spacing-xl) 0;
+  min-height: calc(100vh - 140px); /* Account for header and footer */
+}
+
+/* 
+ * Navigation Bar
+ * Top navigation with branding and links
+ */
+.navbar {
+  background-color: var(--white);
+  padding: var(--spacing-md);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  z-index: 100; /* Ensure navbar is above other content */
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Brand logo and text */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.navbar-brand img {
+  margin-right: var(--spacing-sm);
+}
+
+/* Navigation links */
+.navbar-links {
+  display: flex;
+  list-style: none;
+}
+
+.navbar-links li {
+  margin: 0 var(--spacing-md);
+}
+
+/* Individual navigation items */
+.navbar-links a {
+  color: var(--primary-color);
+  font-weight: 500;
+  transition: color 0.3s;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius-sm);
+}
+
+/* Hover and active states for navigation */
+.navbar-links a:hover,
+.navbar-links a.active {
+  color: var(--secondary-hover);
+  background-color: rgba(250, 210, 225, 0.2);
+}
+
+/* Special styling for logout button */
+.navbar-links a.logout {
+  color: var(--danger-color);
+}
+
+/* 
+ * Card Components
+ * Reusable card containers for content
+ */
+.card {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-md);
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+}
+
+/* Subtle lift effect on hover */
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.card-title {
+  font-size: 1.5rem;
+  margin-bottom: var(--spacing-md);
+  color: var(--primary-color);
+}
+
+.card-text {
+  color: var(--text-light);
+  margin-bottom: var(--spacing-md);
+}
+
+/* 
+ * Form Elements
+ * Input fields, labels, and controls
+ */
+.form-group {
+  margin-bottom: var(--spacing-lg);
+}
+
+.form-label {
+  display: block;
+  margin-bottom: var(--spacing-sm);
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+/* Text input styling */
+.form-control {
+  width: 100%;
+  padding: var(--spacing-md);
+  border: 1px solid #ddd;
+  border-radius: var(--border-radius-sm);
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+/* Focus state for inputs */
+.form-control:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(106, 5, 114, 0.2);
+}
+
+/* Custom styling for select dropdowns */
+select.form-control {
+  appearance: none; /* Remove browser-specific styling */
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%236a0572'%3E%3Cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd'/%3E%3C/svg%3E");
+  background-position: right 10px center;
+  background-repeat: no-repeat;
+  background-size: 20px;
+  padding-right: 40px; /* Space for dropdown icon */
+}
+
+/* 
+ * Button System
+ * Different button styles for actions
+ */
+.btn {
+  display: inline-block;
+  font-weight: 500;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  padding: var(--spacing-md) var(--spacing-lg);
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: var(--border-radius-sm);
+  transition: all 0.3s ease;
+  border: none;
+}
+
+/* Primary action button */
+.btn-primary {
+  background-color: var(--secondary-color);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background-color: var(--secondary-hover);
+}
+
+/* Secondary action button */
+.btn-secondary {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+.btn-secondary:hover {
+  background-color: #550560; /* Darker purple */
+}
+
+/* Outline button style */
+.btn-outline {
+  background-color: transparent;
+  border: 2px solid var(--secondary-color);
+  color: var(--primary-color);
+}
+
+.btn-outline:hover {
+  background-color: var(--secondary-color);
+  color: var(--white);
+}
+
+/* Full-width button */
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+/* Small button */
+.btn-sm {
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: 0.875rem;
+}
+
+/* Large button */
+.btn-lg {
+  padding: var(--spacing-md) var(--spacing-xl);
+  font-size: 1.125rem;
+}
+
+/* 
+ * Alert & Notification System
+ * Feedback messages to users
+ */
+.alert {
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+  border-radius: var(--border-radius-sm);
+  display: flex;
+  align-items: center;
+}
+
+/* Success alert (green) */
+.alert-success {
+  background-color: rgba(40, 167, 69, 0.1);
+  border-left: 4px solid var(--success-color);
+  color: var(--success-color);
+}
+
+/* Warning alert (yellow) */
+.alert-warning {
+  background-color: rgba(255, 193, 7, 0.1);
+  border-left: 4px solid var(--warning-color);
+  color: var(--warning-color);
+}
+
+/* Danger alert (red) */
+.alert-danger {
+  background-color: rgba(220, 53, 69, 0.1);
+  border-left: 4px solid var(--danger-color);
+  color: var(--danger-color);
+}
+
+/* Info alert (blue) */
+.alert-info {
+  background-color: rgba(23, 162, 184, 0.1);
+  border-left: 4px solid var(--info-color);
+  color: var(--info-color);
+}
+
+/* 
+ * Welcome Page Components
+ * Styling for the landing page
+ */
+.welcome-container {
+  max-width: 600px;
+  margin: 10vh auto;
+  text-align: center;
+  padding: var(--spacing-xl);
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  /* Animation added later in the file */
+}
+
+.welcome-heading {
+  font-size: 3rem;
+  margin-bottom: var(--spacing-md);
+  color: var(--primary-color);
+}
+
+.welcome-subheading {
+  font-size: 1.25rem;
+  margin-bottom: var(--spacing-xl);
+  color: var(--text-light);
+}
+
+/* Login/Register button container */
+.auth-buttons {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-lg);
+}
+
+/* 
+ * Dashboard Components
+ * Styling for the user dashboard
+ */
+.dashboard-form {
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: var(--card-bg);
+  padding: var(--spacing-xl);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.dashboard-welcome {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+/* 
+ * Music Library Components
+ * Styling for the music recommendation feature
+ */
+.music-section {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.music-preferences {
+  margin-bottom: var(--spacing-xl);
+}
+
+/* Gender preference selection cards */
+.gender-options {
+  display: flex;
+  gap: var(--spacing-md);
+  margin: var(--spacing-md) 0 var(--spacing-xl);
+}
+
+.gender-card {
+  flex: 1;
+  text-align: center;
+  padding: var(--spacing-lg);
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.gender-card:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+}
+
+/* Selected gender card state */
+.gender-card.active {
+  border-color: var(--secondary-color);
+  background-color: rgba(255, 179, 198, 0.1);
+}
+
+.gender-card-icon {
+  font-size: 2rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.gender-card-title {
+  font-weight: 600;
+  margin-bottom: var(--spacing-xs);
+}
+
+.gender-card-subtitle {
+  font-size: 0.875rem;
+  color: var(--text-light);
+}
+
+/* 
+ * Chatbot Components
+ * Styling for the AI chatbot interface
+ */
+.chatbox {
+  max-width: 600px;
+  margin: 0 auto;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+.chat-messages {
+  flex-grow: 1;
+  overflow-y: auto; /* Scrollable message area */
+  padding: var(--spacing-md);
+}
+
+.message {
+  margin-bottom: var(--spacing-md);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-sm);
+  max-width: 80%;
+}
+
+/* Bot message bubbles */
+.message-bot {
+  background-color: rgba(106, 5, 114, 0.1); /* Light purple for bot */
+  align-self: flex-start;
+  border-radius: var(--border-radius-sm) var(--border-radius-sm) var(--border-radius-sm) 0;
+}
+
+/* User message bubbles */
+.message-user {
+  background-color: rgba(255, 179, 198, 0.2); /* Light pink for user */
+  align-self: flex-end;
+  border-radius: var(--border-radius-sm) var(--border-radius-sm) 0 var(--border-radius-sm);
+  margin-left: auto;
+}
+
+/* Chat input area */
+.chat-input {
+  display: flex;
+  padding: var(--spacing-md);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.chat-input input {
+  flex-grow: 1;
+  border: 1px solid #ddd;
+  border-radius: var(--border-radius-sm) 0 0 var(--border-radius-sm);
+  padding: var(--spacing-md);
+}
+
+.chat-input button {
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0;
+  padding: var(--spacing-md) var(--spacing-lg);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.chat-input button:hover {
+  background-color: var(--secondary-hover);
+}
+
+/* 
+ * Self-Referral Components
+ * Styling for the mental health referral resources
+ */
+.referral-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid */
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+}
+
+.referral-card {
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.referral-title {
+  font-size: 1.25rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.referral-description {
+  margin-bottom: var(--spacing-md);
+  color: var(--text-light);
+}
+
+/* 
+ * Footer Component
+ * Consistent footer across all pages
+ */
+.footer {
+  text-align: center;
+  padding: var(--spacing-md) 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: var(--text-light);
+  margin-top: var(--spacing-xxl);
+}
+
+/* 
+ * Utility Classes
+ * Helper classes for common styling needs
+ */
+.text-center {
+  text-align: center;
+}
+
+.text-primary {
+  color: var(--primary-color);
+}
+
+.text-secondary {
+  color: var(--secondary-color);
+}
+
+/* Margin utility classes */
+.mt-1 { margin-top: var(--spacing-sm); }
+.mt-2 { margin-top: var(--spacing-md); }
+.mt-3 { margin-top: var(--spacing-lg); }
+.mt-4 { margin-top: var(--spacing-xl); }
+.mt-5 { margin-top: var(--spacing-xxl); }
+
+.mb-1 { margin-bottom: var(--spacing-sm); }
+.mb-2 { margin-bottom: var(--spacing-md); }
+.mb-3 { margin-bottom: var(--spacing-lg); }
+.mb-4 { margin-bottom: var(--spacing-xl); }
+.mb-5 { margin-bottom: var(--spacing-xxl); }
+
+/* 
+ * Responsive Design
+ * Adaptations for different screen sizes
+ */
+@media (max-width: 768px) {
+  /* Mobile navigation adjustments */
+  .navbar-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--white);
+    flex-direction: column;
+    padding: var(--spacing-md) 0;
+    box-shadow: var(--shadow-md);
+  }
+  
+  /* Show mobile menu when activated */
+  .navbar-links.show {
+    display: flex;
+  }
+  
+  .navbar-links li {
+    margin: var(--spacing-xs) 0;
+  }
+  
+  /* Show mobile hamburger menu */
+  .navbar-toggler {
+    display: block;
+  }
+  
+  /* Smaller heading on mobile */
+  .welcome-heading {
+    font-size: 2.5rem;
+  }
+  
+  /* Stack gender cards vertically on mobile */
+  .gender-options {
+    flex-direction: column;
+  }
+  
+  /* Stack auth buttons vertically on mobile */
+  .auth-buttons {
+    flex-direction: column;
+  }
+  
+  /* Full width buttons on mobile */
+  .btn {
+    width: 100%;
+    margin-bottom: var(--spacing-sm);
+  }
+}
+
+/* Hide mobile menu toggle on larger screens */
+@media (min-width: 769px) {
+  .navbar-toggler {
+    display: none;
+  }
+}
+
+/* 
+ * Mental Health Section Styling
+ * Special styling for mental health assessment areas
+ */
+.mental-health-section {
+  margin-top: 25px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1); /* Subtle separator */
+}
+
+.section-heading {
+  font-size: 1.3rem;
+  color: #6a0572;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+/* For a subtle background effect instead of the box */
+.form-section {
+  padding: 10px 0;
+}
+
+/* Visual cue for mental health questions */
+.mental-health-section .form-group {
+  border-left: 3px solid #fad2e1; /* Pink accent border */
+  padding-left: 15px;
+  margin-bottom: 20px;
+}
+
+/* 
+ * Button Styling Refinements
+ * Enhanced button appearance
+ */
+.btn-primary {
+  background-color: #ffb3c6;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  color: #6a0572;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: #ff85a1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 
+ * Scroll to Top Button
+ * Helper for long pages
+ */
+#scrollTopBtn {
+  display: none; /* Hidden by default */
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 99;
+  font-size: 20px;
+  border: none;
+  outline: none;
+  background-color: #ffb3c6;
+  color: white;
+  cursor: pointer;
+  padding: 12px 16px;
+  border-radius: 50%; /* Circular button */
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease;
+}
+
+#scrollTopBtn:hover {
+  background-color: #ff85a1;
+}
+
+/* 
+ * Button Animation Effects
+ * Visual feedback for interactive elements
+ */
+.sparkle-btn {
+  position: relative;
+  overflow: hidden; /* Contain the animation */
+}
+
+/* Shine effect across button */
+.sparkle-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.4); /* White shine */
+  transform: skewX(-20deg);
+  animation: shine 2s infinite;
+}
+
+/* Animation for shine effect */
+@keyframes shine {
+  0% { left: -75%; }
+  50% { left: 125%; }
+  100% { left: 125%; }
+}
+
+/* 
+ * Music Card Hover Effects
+ * Interactive feedback for music tracks
+ */
+.music-track-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.music-track-card:hover {
+  transform: translateY(-8px); /* Pronounced lift effect */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* 
+ * Custom Spinner Color
+ * Themed loading indicator
+ */
+.spinner-border.text-primary {
+  color: #f48fb1 !important;
+  border-color: #f48fb1 !important;
+}
+
+/* 
+ * Success Popup Notification
+ * Temporary feedback message
+ */
+.success-popup {
+  position: fixed;
+  top: 80px;
+  right: 30px;
+  background-color: #f48fb1;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  font-weight: 600;
+  z-index: 999;
+  animation: fadeInOut 3s forwards; /* Auto-hide animation */
+}
+
+/* Animation for popup appearance and disappearance */
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(-20px); }
+  10% { opacity: 1; transform: translateY(0); }
+  90% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-20px); }
+}
+
+/* 
+ * Enhanced Find Music Button Animation
+ * Special animation for music discovery
+ */
+#findMusic {
+  position: relative;
+  overflow: hidden;
+}
+
+#findMusic::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.4);
+  transform: skewX(-20deg);
+  transition: 0.5s;
+}
+
+#findMusic:hover::after {
+  animation: sparkleMove 1.5s linear forwards;
+}
+
+@keyframes sparkleMove {
+  0% { left: -75%; }
+  50% { left: 125%; }
+  100% { left: 125%; }
+}
+
+/* 
+ * Liked Songs Section Styling
+ * For displaying user's music preferences
+ */
+.liked-songs-section {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #eee; /* Subtle separator */
+}
+
+.song-card {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  margin-bottom: 0.75rem;
+  background-color: transparent;
+}
+
+.song-info {
+  flex-grow: 1;
+}
+
+.song-title {
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.song-artist {
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+.empty-liked {
+  text-align: center;
+  padding: 2rem;
+}
+
+/* 
+ * Welcome Page Button Enhancements
+ * Special styling for auth buttons
+ */
+.auth-buttons a {
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  text-align: center;
+  min-width: 130px;
+  transition: all 0.3s ease;
+}
+
+/* Register Button */
+.auth-buttons .btn-primary {
+  background-color: #ffb3c6;
+  color: #6a0572;
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-buttons .btn-primary:hover {
+  background-color: #ff85a1;
+  color: white;
+}
+
+/* Login Button */
+.auth-buttons .btn-outline {
+  background-color: #d9b8ff; /* Light purple */
+  color: #6a0572;
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-buttons .btn-outline:hover {
+  background-color: #cda3f6; /* Darker purple */
+  color: white;
+}
+
+/* Sparkle effect for both auth buttons */
+.auth-buttons .btn-primary::after,
+.auth-buttons .btn-outline::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.4);
+  transform: skewX(-20deg);
+  animation: sparkleMove 2s infinite;
+}
+
+/* 
+ * Welcome Card Animation
+ * Initial appearance animation
+ */
+.welcome-container {
+  animation: popZoom 0.8s ease forwards;
+  transform: scale(0.95);
+  opacity: 0;
+}
+
+@keyframes popZoom {
+  0% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
