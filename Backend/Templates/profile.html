@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Profile - MindBalance</title>
+  <!-- Favicon for browser tab icon -->
+  <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+  <!-- Bootstrap CSS framework for responsive design -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Poppins font for clean, modern typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Chart.js for data visualisation -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    /* 
+     * CSS Variables - Consistent theming across application
+     * Using a colour palette focused on calming purples and pinks
+     * These colours were chosen specifically for mental health applications
+     */
+    :root {
+      --primary-color: #6a0572;      /* Purple - Primary brand colour */
+      --secondary-color: #ffb3c6;    /* Light Pink - Secondary/accent colour */
+      --secondary-hover: #ff85a1;    /* Darker Pink - Hover state */
+      --bg-gradient-start: #fde2e4;  /* Light Pink - Gradient start */
+      --bg-gradient-mid: #fad2e1;    /* Mid Pink - Gradient middle */
+      --bg-gradient-end: #bee1e6;    /* Light Blue - Gradient end */
+      --text-color: #495057;         /* Dark Grey - Main text */
+      --text-light: #6c757d;         /* Medium Grey - Secondary text */
+      --white: #ffffff;              /* White */
+      --border-radius-md: 12px;      /* Medium border radius */
+      --border-radius-lg: 20px;      /* Large border radius */
+      --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.1); /* Box shadow */
+    }
+
+    /* 
+     * Base body styling with gradient background
+     * This gradient creates a calming visual effect across the viewport
+     */
+    body {
+      background: linear-gradient(to right, var(--bg-gradient-start), var(--bg-gradient-mid), var(--bg-gradient-end));
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-color);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;  /* Enables footer to stay at bottom */
+    }
+
+    /* Navigation bar styling */
+    .navbar {
+      background: var(--white);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+      color: var(--primary-color) !important;
+    }
+
+    /* 
+     * Profile container styling
+     * Semi-transparent white background with rounded corners and shadow
+     * This creates a focused area for the user's profile information
+     */
+    .profile-container {
+      max-width: 960px;
+      margin: 50px auto;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 30px;
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    /* Primary button styling */
+    .btn-primary {
+      background-color: var(--secondary-color);
+      border-color: var(--secondary-color);
+    }
+    
+    .btn-primary:hover {
+      background-color: var(--secondary-hover);
+      border-color: var(--secondary-hover);
+    }
+    
+    /* Heading styles */
+    h2 {
+      color: var(--primary-color);
+    }
+    
+    /* Form label styling */
+    .form-label {
+      color: var(--primary-color);
+    }
+    
+    /* Footer styling */
+    footer {
+      margin-top: auto;  /* Pushes footer to bottom */
+      padding: 1rem;
+      background: rgba(255,255,255,0.8);
+      text-align: center;
+      color: var(--text-light);
+    }
+    
+    /* 
+     * Liked Songs Section Styling
+     * Shows history of songs the user has liked from music recommendations
+     */
+    .liked-songs-section {
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid #eee;  /* Subtle separator */
+    }
+    
+    /* Individual song card styling */
+    .song-card {
+      display: flex;
+      align-items: center;
+      padding: 0.75rem;
+      margin-bottom: 0.75rem;
+      border-radius: var(--border-radius-md);
+      background-color: #f8f9fa;
+      transition: transform 0.2s ease;  /* Smooth hover animation */
+    }
+    
+    /* Card hover effect with slight lift and shadow */
+    .song-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    /* Thumbnail container for song artwork */
+    .song-thumbnail {
+      width: 60px;
+      height: 60px;
+      min-width: 60px;
+      border-radius: 6px;
+      overflow: hidden;
+      margin-right: 1rem;
+    }
+    
+    /* Thumbnail image styling */
+    .song-thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;  /* Prevents image distortion */
+    }
+    
+    /* Song information container */
+    .song-info {
+      flex-grow: 1;  /* Takes available space */
+    }
+    
+    /* Song title styling */
+    .song-title {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      color: var(--primary-color);
+    }
+    
+    /* Artist name styling */
+    .song-artist {
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+    
+    /* Action buttons for songs */
+    .song-actions {
+      display: flex;
+      align-items: center;
+    }
+    
+    /* Song action links styling */
+    .song-actions a {
+      margin-left: 0.5rem;
+      color: var(--secondary-color);
+      text-decoration: none;
+      font-size: 1.25rem;
+    }
+    
+    /* Empty state for no liked songs */
+    .empty-liked {
+      text-align: center;
+      padding: 2rem;
+      background-color: #f8f9fa;
+      border-radius: var(--border-radius-md);
+    }
+  </style>
+</head>
+<body>
+
+<!-- 
+  Navigation Bar 
+  Provides consistent navigation across all app pages
+  Highlights current page (Profile) with bold styling
+-->
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="/">💆 MindBalance</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="/music">Music Library</a></li>
+        <li class="nav-item"><a class="nav-link" href="/dashboard">Dashboard</a></li>
+        <li class="nav-item"><a class="nav-link" href="/chatbot">Chatbot</a></li>
+        <li class="nav-item"><a class="nav-link" href="/self-referral">Self-Referral</a></li>
+        <li class="nav-item"><a class="nav-link" href="/mood-graph">Mood Graph</a></li>
+        <li class="nav-item"><a class="nav-link" href="/about-us">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="/journal">Journal</a></li>
+        <!-- Profile link is bold to show current page -->
+        <li class="nav-item"><a class="nav-link fw-bold" style="color: var(--primary-color) !important;" href="/profile">Profile</a></li>
+        <li class="nav-item"><a class="nav-link text-danger" href="/logout">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- 
+  Main Profile Container
+  Contains user information, edit form, and related data sections
+-->
+<div class="profile-container">
+  <h2 class="text-center mb-4">👤 Your Profile</h2>
+
+  <!-- 
+    User Details Section
+    Displays current user information retrieved from database
+  -->
+  <div class="mb-4">
+    <h5>Username: {{ user.username }}</h5>
+    <p>Age: {{ user.age }}</p>
+    <p>Gender: {{ user.gender }}</p>
+    <p>Marital Status: {{ user.marital_status }}</p>
+  </div>
+
+  <!-- 
+    Profile Edit Form
+    Allows users to update their demographic information
+    This data is used to personalise recommendations
+  -->
+  <form method="POST" action="{{ url_for('update_profile') }}" class="row g-3 mb-4">
+    <!-- Age field -->
+    <div class="col-md-4">
+      <label for="age" class="form-label">Age</label>
+      <input type="number" name="age" id="age" class="form-control" value="{{ user.age }}" required>
+    </div>
+    
+    <!-- Gender selection -->
+    <div class="col-md-4">
+      <label for="gender" class="form-label">Gender</label>
+      <select name="gender" id="gender" class="form-select">
+        <option value="male" {% if user.gender == 'male' %}selected{% endif %}>Male</option>
+        <option value="female" {% if user.gender == 'female' %}selected{% endif %}>Female</option>
+        <option value="other" {% if user.gender == 'other' %}selected{% endif %}>Other</option>
+      </select>
+    </div>
+    
+    <!-- Marital status selection -->
+    <div class="col-md-4">
+      <label for="marital_status" class="form-label">Marital Status</label>
+      <select name="marital_status" id="marital_status" class="form-select">
+        <option value="single" {% if user.marital_status == 'single' %}selected{% endif %}>Single</option>
+        <option value="married" {% if user.marital_status == 'married' %}selected{% endif %}>Married</option>
+        <option value="other" {% if user.marital_status == 'other' %}selected{% endif %}>Other</option>
+      </select>
+    </div>
+    
+    <!-- Submit button -->
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">Save Profile Changes</button>
+    </div>
+  </form>
+
+<!-- 
+  Liked Songs Section
+  Displays a history of music the user has saved from recommendations
+  Personalises the user experience by showing their musical preferences
+-->
+<div class="liked-songs-section" style="margin-top: 40px; margin-bottom: 40px;">
+  <h2 class="text-center" style="margin-bottom: 30px;">❤️ Your Liked Songs</h2>
+  
+  <!-- Conditional display based on whether user has liked songs -->
+  {% if music_history and music_history|length > 0 %}
+    <!-- Loop through each liked track -->
+    {% for track in music_history %}
+      <div style="margin-bottom: 20px; padding: 10px;">
+        <div style="font-weight: 600; color: #6a0572;">{{ track.track_title }}</div>
+        <div style="font-size: 0.9rem; color: #6c757d;">{{ track.artist_name }}</div>
+        <small style="color: #6c757d;">Liked on {{ track.timestamp.strftime('%B %d, %Y') }}</small>
+      </div>
+    {% endfor %}
+  {% else %}
+    <!-- Empty state when no songs have been liked -->
+    <p class="text-center">You haven't liked any songs yet.</p>
+    <div class="text-center">
+      <a href="/music" class="btn btn-primary">Explore Music Library</a>
+    </div>
+  {% endif %}
+</div>
+
+  <!-- 
+    Mood Graph Section
+    Visualises the user's mood trends over time
+    Includes time filtering options and CSV export functionality
+  -->
+  <div class="mb-5 mt-5">
+    <h5 class="text-center">🍌 Mood Trend</h5>
+    <!-- Filter controls for mood data -->
+    <div class="d-flex justify-content-between mb-2">
+      <select id="timeFilter" class="form-select w-auto">
+        <option value="all">All Time</option>
+        <option value="7">Last 7 Days</option>
+        <option value="30">Last 30 Days</option>
+      </select>
+      <button id="refreshBtn" class="btn btn-outline-secondary">↻ Refresh</button>
+    </div>
+    <!-- Canvas for Chart.js visualisation -->
+    <canvas id="moodChart"></canvas>
+    <!-- Data export feature -->
+    <div class="text-center mt-3">
+      <button id="exportCsv" class="btn btn-outline-success">📄 Download Mood History (CSV)</button>
+    </div>
+  </div>
+
+  <!-- 
+    Toast Notification System
+    Shows success/error messages during profile updates
+    Fixed position in bottom right corner with auto-dismissal
+  -->
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999">
+    <div id="liveToast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body" id="toast-message"></div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer with copyright information -->
+<footer class="footer">
+  <p>&copy; 2025 MindBalance | All Rights Reserved</p>
+</footer>
+
+<!-- 
+  Flash Message Display Logic
+  Shows notifications from backend (e.g., successful profile updates)
+  Uses Bootstrap's toast component for temporary notifications
+-->
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function () {
+    const toast = document.getElementById('liveToast');
+    const toastMsg = document.getElementById('toast-message');
+    const msg = JSON.parse('{{ messages[0]|tojson|safe }}');
+    toastMsg.innerText = msg;
+    new bootstrap.Toast(toast).show();
+  });
+</script>
+{% endif %}
+{% endwith %}
+
+<!-- Additional dependencies and scripts -->
+<!-- Bootstrap Icons for UI elements -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+<!-- Bootstrap JS for interactive components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Custom script for mood graph visualisation -->
+<script src="{{ url_for('static', filename='js/mood_graph.js') }}"></script>
+</body>
+</html>
