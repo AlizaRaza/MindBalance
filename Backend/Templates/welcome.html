@@ -1,0 +1,95 @@
+<!-- setting up html5 -->
+<!DOCTYPE html>
+
+<!-- page starts -->
+<html lang="en">
+
+<head>
+  <!-- character encoding -->
+  <meta charset="UTF-8">
+
+  <!-- responsive page -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- page title -->
+  <title>Welcome | MindBalance</title>
+
+  <!-- link favicon -->
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+  <!-- link poppins font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- link main css -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+  <!-- shimmer button style -->
+  <style>
+    /* button base style */
+    .shimmer-btn {
+      position: relative;
+      overflow: hidden;
+      background-color: #d9b8ff;
+      color: #6a0572;
+      border: none;
+    }
+
+    /* shimmer animation effect */
+    .shimmer-btn::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -75%;
+      width: 50%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.3);
+      transform: skewX(-20deg);
+      animation: shimmerMove 2.5s infinite;
+    }
+
+    /* shimmer movement */
+    @keyframes shimmerMove {
+      0% { left: -75%; }
+      50% { left: 125%; }
+      100% { left: 125%; }
+    }
+
+    /* button hover style */
+    .shimmer-btn:hover {
+      background-color: #cda3f6;
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- page content start -->
+<div class="page-content">
+
+  <!-- welcome container -->
+  <div class="welcome-container">
+    
+    <!-- main heading -->
+    <h1 class="welcome-heading">Welcome to MindBalance</h1>
+    
+    <!-- sub heading -->
+    <p class="welcome-subheading">Your personalised mental health companion</p>
+
+    <!-- buttons -->
+    <div class="auth-buttons">
+        <a href="/register" class="btn btn-primary">Register</a> <!-- register button -->
+        <a href="/login" class="btn btn-outline">Login</a> <!-- login button -->
+    </div>      
+
+  </div> <!-- end welcome container -->
+
+</div> <!-- end page content -->
+
+<!-- footer -->
+<footer class="footer">
+  <p>&copy; 2025 MindBalance | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>
