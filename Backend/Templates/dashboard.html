@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta settings for encoding, responsiveness, and SEO -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MindBalance - Student mental health dashboard">
+
+    <!-- Page title shown on the browser tab -->
+    <title>Dashboard | MindBalance</title>
+
+    <!-- Website favicon (small icon shown in the browser tab) -->
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+    <!-- Link to Bootstrap CSS for modern, responsive styling -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Internal CSS to style the page consistently with MindBalance theme -->
+    <style>
+        /* Theme variables for colors, fonts, and spacing */
+        :root {
+          --primary-color: #6a0572;
+          --secondary-color: #ffb3c6;
+          --secondary-hover: #ff85a1;
+          --bg-gradient-start: #fde2e4;
+          --bg-gradient-mid: #fad2e1;
+          --bg-gradient-end: #bee1e6;
+          --text-color: #495057;
+          --text-light: #6c757d;
+          --white: #ffffff;
+          --border-radius-md: 12px;
+          --border-radius-lg: 20px;
+          --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Body styling with soft gradient background */
+        body {
+          background: linear-gradient(to right, var(--bg-gradient-start), var(--bg-gradient-mid), var(--bg-gradient-end));
+          font-family: sans-serif;
+          color: var(--text-color);
+          min-height: 100vh; /* Full height for mobile and desktop */
+          display: flex;
+          flex-direction: column;
+        }
+
+        /* Navbar styling for navigation links */
+        .navbar {
+          background: var(--white);
+          box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .navbar-brand {
+          font-weight: bold;
+          color: var(--primary-color) !important;
+        }
+        
+        /* Spacing between navbar links */
+        .navbar-nav .nav-item {
+          margin: 0 8px;
+        }
+        
+        .nav-link {
+          padding: 8px 12px !important;
+        }
+
+        /* Styling for the dashboard content area */
+        .page-content {
+            flex: 1;
+            padding: 20px 0;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto; /* Center the content */
+        }
+
+        .dashboard-form {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2.5rem;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .dashboard-welcome {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .dashboard-welcome h1 {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* Form and input styles */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            font-weight: 500;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .form-control {
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        /* Section for mental health questions */
+        .mental-health-section {
+            margin-top: 2rem;
+        }
+
+        .section-heading {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Styling for the submit button */
+        .btn-primary {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            font-weight: 500;
+            padding: 10px;
+            border-radius: 10px;
+            margin-top: 1rem;
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-hover);
+            border-color: var(--secondary-hover);
+        }
+
+        /* Alert messages for success/warning/error */
+        .alert {
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            padding: 15px;
+        }
+
+        /* Footer style */
+        .footer {
+            margin-top: auto;
+            padding: 1rem;
+            background: rgba(255,255,255,0.8);
+            text-align: center;
+            color: var(--text-light);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation bar at the top -->
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <!-- MindBalance logo and home link -->
+        <a class="navbar-brand" href="/">💆 MindBalance</a>
+
+        <!-- Button for mobile view menu -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="/music">Music Library</a></li>
+            <li class="nav-item"><a class="nav-link fw-bold" style="color: var(--primary-color) !important;" href="/dashboard">Dashboard</a></li>
+            <li class="nav-item"><a class="nav-link" href="/chatbot">Chatbot</a></li>
+            <li class="nav-item"><a class="nav-link" href="/self-referral">Self-Referral</a></li>
+            <li class="nav-item"><a class="nav-link" href="/mood-graph">Mood Graph</a></li>
+            <li class="nav-item"><a class="nav-link" href="/about-us">About Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="/journal">Journal</a></li>
+            <li class="nav-item"><a class="nav-link" href="/profile">Profile</a></li>
+            <li class="nav-item"><a class="nav-link text-danger" href="/logout">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main content of the page -->
+    <main class="page-content">
+        <div class="container">
+
+            <!-- Flash messages if any (success/error/warning) -->
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }} alert-dismissible" role="alert">
+                            {{ message }}
+                            <button type="button" class="btn-close" onclick="this.parentElement.style.display='none'" aria-label="Close"></button>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            
+            <!-- Dashboard form where user enters course, CGPA, and mental health status -->
+            <section class="dashboard-form">
+                <header class="dashboard-welcome">
+                    <h1>🧸 Welcome, {{ user.username }}!</h1>
+
+                    <!-- Admin-only link to Admin Panel -->
+                    {% if user.username == 'admin' %}
+                    <div class="text-center my-3">
+                        <a href="{{ url_for('admin_dashboard') }}" class="btn btn-warning btn-lg" style="font-weight:bold;">
+                            🚀 Go to Admin Panel
+                        </a>
+                    </div>
+                    {% endif %}
+                </header>
+
+                <!-- User input form -->
+                <form method="POST" action="{{ url_for('dashboard') }}" autocomplete="on">
+
+                    <!-- Dropdown for selecting course -->
+                    <div class="form-group">
+                        <label for="course" class="form-label">🎓 What is your course?</label>
+                        <select id="course" name="course" class="form-control" required aria-required="true">
+                            <option disabled selected value="">-- Select a course --</option>
+                            {% for course in courses %}
+                                <option value="{{ course }}">{{ course }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <!-- Dropdown for selecting year of study -->
+                    <div class="form-group">
+                        <label for="year_of_study" class="form-label">📘 Year of Study</label>
+                        <select id="year_of_study" name="year_of_study" class="form-control" required aria-required="true">
+                            <option disabled selected value="">-- Select a year --</option>
+                            {% for year in years_of_study %}
+                                <option value="{{ year }}">{{ year }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <!-- Dropdown for selecting CGPA -->
+                    <div class="form-group">
+                        <label for="cgpa" class="form-label">📊 What is your CGPA?</label>
+                        <select id="cgpa" name="cgpa" class="form-control" required aria-required="true">
+                            <option disabled selected value="">-- Select CGPA Range --</option>
+                            <option value="0.00 - 0.50">0.00 - 0.50</option>
+                            <option value="0.51 - 1.00">0.51 - 1.00</option>
+                            <option value="1.01 - 1.50">1.01 - 1.50</option>
+                            <option value="1.51 - 2.00">1.51 - 2.00</option>
+                            <option value="2.01 - 2.50">2.01 - 2.50</option>
+                            <option value="2.51 - 3.00">2.51 - 3.00</option>
+                            <option value="3.01 - 3.50">3.01 - 3.50</option>
+                            <option value="3.51 - 4.00">3.51 - 4.00</option>
+                        </select>
+                    </div>
+
+                    <!-- Mental health assessment section -->
+                    <div class="form-section mental-health-section">
+                        <h3 class="section-heading">Mental Health Assessment</h3>
+
+                        <!-- Dropdowns for mental health conditions -->
+                        <div class="form-group">
+                            <label for="depression" class="form-label">Do you experience Depression?</label>
+                            <select id="depression" name="depression" class="form-control" required aria-required="true">
+                                <option disabled selected value="">-- Select an option --</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="anxiety" class="form-label">Do you experience Anxiety?</label>
+                            <select id="anxiety" name="anxiety" class="form-control" required aria-required="true">
+                                <option disabled selected value="">-- Select an option --</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="panic_attack" class="form-label">Do you experience Panic Attacks?</label>
+                            <select id="panic_attack" name="panic_attack" class="form-control" required aria-required="true">
+                                <option disabled selected value="">-- Select an option --</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Submit button -->
+                    <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 MindBalance | All Rights Reserved</p>
+    </footer>
+
+    <!-- Bootstrap JavaScript Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
