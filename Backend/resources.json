@@ -1,0 +1,1698 @@
+{
+  "0.00 - 0.50": {
+    "Computer Science": [
+      {
+        "text": "CS50's Introduction to Computer Science - Harvard",
+        "link": "https://cs50.harvard.edu/x/",
+        "description": "A beginner-friendly approach to CS fundamentals for students needing extra support.",
+        "type": "course",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "4 weeks",
+        "resource_type": "Course"
+      },
+      {
+        "text": "Pomodoro Technique Timer for Programming",
+        "link": "https://pomofocus.io/",
+        "description": "Time management method to improve focus during coding sessions.",
+        "type": "tool",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "30 mins",
+        "resource_type": "Tool"
+      },
+      {
+        "text": "CS Tutoring Services - One-on-One",
+        "link": "https://www.chegg.com/tutors/Computer-Science-tutors/",
+        "description": "Schedule time with a CS tutor for personalized help with programming concepts.",
+        "type": "service",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "30 mins",
+        "resource_type": "Service"
+      },
+      {
+        "text": "Programming Fundamentals Visualized",
+        "link": "https://visualgo.net/en/sorting",
+        "description": "Visual learning tools for basic programming concepts.",
+        "type": "tool",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "30 mins",
+        "resource_type": "Tool"
+      }
+    ],
+    "Engineering": [
+      {
+        "text": "Basic Engineering Principles - Khan Academy",
+        "link": "https://www.khanacademy.org/science/physics",
+        "description": "Rebuild your foundations in engineering physics.",
+        "type": "course",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "2 hours",
+        "resource_type": "Course"
+      },
+      {
+        "text": "Engineering Concepts Simplified - YouTube",
+        "link": "https://www.youtube.com/c/PracticalEngineeringChannel",
+        "description": "Video explanations of basic engineering concepts.",
+        "type": "youtube",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "15 mins",
+        "resource_type": "Video"
+      },
+      {
+        "text": "Engineering Study Skills Improvement",
+        "link": "https://www.asee.org/resources/beyond-the-classroom",
+        "description": "Resources to improve study skills specifically for engineering students.",
+        "type": "resource",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "10 mins",
+        "resource_type": "Article"
+      },
+      {
+        "text": "Engineering Math Refresher",
+        "link": "https://www.khanacademy.org/math/algebra",
+        "description": "Review essential mathematics needed for engineering coursework.",
+        "type": "course",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "3 weeks",
+        "resource_type": "Course"
+      }
+    ],
+    "Mathematics": [
+      {
+        "text": "Math Foundations - Khan Academy",
+        "link": "https://www.khanacademy.org/math",
+        "description": "Rebuild your mathematics foundation from the ground up.",
+        "type": "course",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "4 weeks",
+        "resource_type": "Course"
+      },
+      {
+        "text": "3Blue1Brown - Mathematical Visualizations",
+        "link": "https://www.youtube.com/c/3blue1brown",
+        "description": "Visual explanations of mathematics that build intuition.",
+        "type": "youtube",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "1 hour",
+        "resource_type": "Video"
+      },
+      {
+        "text": "Mathematics Tutoring Services",
+        "link": "https://www.wyzant.com/math_tutors.aspx",
+        "description": "One-on-one tutoring focused on building math confidence.",
+        "type": "service",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "30 mins",
+        "resource_type": "Service"
+      },
+      {
+        "text": "Math Anxiety Reduction Techniques",
+        "link": "https://www.mathgoodies.com/articles/math_anxiety",
+        "description": "Methods to overcome fear and anxiety about mathematics.",
+        "type": "resource",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "30 mins",
+        "resource_type": "Article"
+      }
+    ],
+    "Business Administration": [
+      {
+        "text": "Business Foundations - Khan Academy",
+        "link": "https://www.khanacademy.org/economics-finance-domain",
+        "description": "Core business and economics concepts for beginners.",
+        "type": "course",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "4 weeks",
+        "resource_type": "Course"
+      },
+      {
+        "text": "Business Vocabulary Builder",
+        "link": "https://www.investopedia.com/financial-term-dictionary-4769738",
+        "description": "Dictionary of essential business terminology for struggling students.",
+        "type": "resource",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "20 mins",
+        "resource_type": "Article"
+      },
+      {
+        "text": "Basic Accounting Skills",
+        "link": "https://www.accountingcoach.com/accounting-basics/outline",
+        "description": "Free accounting lessons to build foundational skills.",
+        "type": "course",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "4 hours",
+        "resource_type": "Course"
+      },
+      {
+        "text": "Business Student Support Group",
+        "link": "https://discord.gg/business-students",
+        "description": "Peer support for struggling business students.",
+        "type": "peer_group",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "N/A",
+        "resource_type": "Peer Group"
+      }
+    ],
+    "Psychology": [
+      {
+        "text": "Psychology 101 - Crash Course",
+        "link": "https://www.youtube.com/playlist?list=PL8dPuuaLjXtOPRKzVLY0jJY-uHOH9KVU6",
+        "description": "Accessible introduction to psychology fundamentals.",
+        "type": "youtube",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "1 hour",
+        "resource_type": "Video"
+      },
+      {
+        "text": "Psychology Tutoring for Beginners",
+        "link": "https://www.wyzant.com/Psychology_tutors.aspx",
+        "description": "One-on-one support for psychology course concepts.",
+        "type": "service",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "1 hour",
+        "resource_type": "Service"
+      },
+      {
+        "text": "Psychology Study Skills Workshop",
+        "link": "https://www.apa.org/ed/precollege/psn/2017/09/skills-students",
+        "description": "Methods to improve study habits for psychology courses.",
+        "type": "resource",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "20 mins",
+        "resource_type": "Article"
+      },
+      {
+        "text": "Psychology Terminology Flashcards",
+        "link": "https://quizlet.com/subject/psychology-101/",
+        "description": "Interactive flashcards for learning psychology vocabulary.",
+        "type": "tool",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "15 mins",
+        "resource_type": "Tool"
+      }
+    ]
+  },
+  "0.51 - 1.00": {
+    "Computer Science": [
+      {
+        "text": "Python for Absolute Beginners",
+        "link": "https://www.udemy.com/course/python-for-absolute-beginners-beginners/",
+        "description": "Learn Python programming from scratch with simplified explanations.",
+        "type": "course",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "4 hours",
+        "resource_type": "Course"
+      },
+      {
+        "text": "CS Peer Mentoring Program",
+        "link": "https://stackoverflow.com/questions/tagged/python",
+        "description": "Find answers to specific programming questions at Stack Overflow.",
+        "type": "resource",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "20 mins",
+        "resource_type": "Article"
+      },
+      {
+        "text": "CodeCombat - Learn to Code by Playing",
+        "link": "https://codecombat.com/",
+        "description": "Game-based learning to build programming skills.",
+        "type": "game",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "1 hour",
+        "resource_type": "Game"
+      },
+      {
+        "text": "CS Reading Group for Struggling Students",
+        "link": "https://discord.gg/code",
+        "description": "Support group for CS students needing extra guidance.",
+        "type": "peer_group",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "N/A",
+        "resource_type": "Peer Group"
+      }
+    ],
+    "Engineering": [
+      {
+        "text": "Engineering Drawing Basics",
+        "link": "https://www.youtube.com/playlist?list=PLGTmGQlRMwSd2_UdLCEy9MSHLvQXU7Oc9",
+        "description": "Learn the fundamentals of engineering drawing and visualization.",
+        "type": "youtube",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "30 mins",
+        "resource_type": "Video"
+      },
+      {
+        "text": "Engineering Mechanics Made Easy",
+        "link": "https://www.coursera.org/learn/engineering-mechanics-statics",
+        "description": "Simplified approach to engineering mechanics for struggling students.",
+        "type": "course",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "4 weeks",
+        "resource_type": "Course"
+      },
+      {
+        "text": "Engineering Study Groups - Discord",
+        "link": "https://discord.gg/engineering-students",
+        "description": "Join online study groups for engineering subjects.",
+        "type": "peer_group",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "N/A",
+        "resource_type": "Peer Group"
+      },
+      {
+        "text": "Engineering Formula Review Sheets",
+        "link": "https://www.teachengineering.org/curriculum/browse",
+        "description": "Simplified reference sheets for common engineering formulas.",
+        "type": "resource",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "20 mins",
+        "resource_type": "Article"
+      }
+    ],
+    "Mathematics": [
+      {
+        "text": "Pre-Calculus Skills Builder",
+        "link": "https://www.khanacademy.org/math/precalculus",
+        "description": "Build the pre-calculus skills needed for college math.",
+        "type": "course",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "4 weeks",
+        "resource_type": "Course"
+      },
+      {
+        "text": "Math Antics - Basic Math Videos",
+        "link": "https://www.youtube.com/user/mathantics",
+        "description": "Clear, relatable explanations of fundamental math concepts.",
+        "type": "youtube",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "1 hour",
+        "resource_type": "Video"
+      },
+      {
+        "text": "Mathematics Learning Center Hours",
+        "link": "https://www.purplemath.com/",
+        "description": "Free online math lessons with step-by-step examples.",
+        "type": "resource",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "10 mins",
+        "resource_type": "Article"
+      },
+      {
+        "text": "Mathematics Concept Map Tools",
+        "link": "https://mathworld.wolfram.com/",
+        "description": "Visual organization of mathematical concepts and their relationships.",
+        "type": "tool",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "15 mins",
+        "resource_type": "Tool"
+      }
+    ],
+    "Business Administration": [
+      {
+        "text": "Intro to Marketing Simplified",
+        "link": "https://www.hubspot.com/marketing",
+        "description": "Accessible introduction to marketing concepts.",
+        "type": "resource",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "20 mins",
+        "resource_type": "Article"
+      },
+      {
+        "text": "Business Writing Skills Workshop",
+        "link": "https://www.grammarly.com/business",
+        "description": "Improve professional writing for business courses.",
+        "type": "tool",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "30 mins",
+        "resource_type": "Tool"
+      },
+      {
+        "text": "Economics for Non-Economists",
+        "link": "https://www.youtube.com/playlist?list=PL8dPuuaLjXtPNZwz5_o_5uirJ8gQXnhEO",
+        "description": "Simplified economics concepts for business students.",
+        "type": "youtube",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "1 hour",
+        "resource_type": "Video"
+      },
+      {
+        "text": "Business Statistics Preparation",
+        "link": "https://www.statlearning.com/",
+        "description": "Simplified approach to business statistics.",
+        "type": "course",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "2 hours",
+        "resource_type": "Course"
+      }
+    ],
+    "Psychology": [
+      {
+        "text": "Psychology Note-Taking Strategies",
+        "link": "https://www.goodnotes.com/",
+        "description": "Effective note-taking methods specifically for psychology courses.",
+        "type": "resource",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "20 mins",
+        "resource_type": "Article"
+      },
+      {
+        "text": "Psychology Essay Writing Help",
+        "link": "https://owl.purdue.edu/owl/subject_specific_writing/writing_in_psychology/index.html",
+        "description": "Guide to writing psychology papers with APA formatting.",
+        "type": "resource",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "30 mins",
+        "resource_type": "Article"
+      },
+      {
+        "text": "Psychology Visual Learning Tools",
+        "link": "https://www.simplypsychology.org/",
+        "description": "Visual explanations of psychology concepts with diagrams.",
+        "type": "resource",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "10 mins",
+        "resource_type": "Article"
+      },
+      {
+        "text": "Psychology Exam Preparation",
+        "link": "https://www.psychexamreview.com/",
+        "description": "Resources for preparing for psychology exams.",
+        "type": "resource",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "30 mins",
+        "resource_type": "Article"
+      }
+    ]
+  },
+  "1.01 - 1.50": {
+    "Computer Science": [
+      {
+        "text": "Programming Fundamentals - Simplified",
+        "link": "https://www.freecodecamp.org/learn",
+        "description": "Interactive programming lessons with immediate feedback.",
+        "type": "course",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "2 hours",
+        "resource_type": "Course"
+      },
+      {
+        "text": "CS Diagram Tools",
+        "link": "https://app.diagrams.net/",
+        "description": "Create visual diagrams to understand complex CS concepts.",
+        "type": "tool",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "30 mins",
+        "resource_type": "Tool"
+      },
+      {
+        "text": "Programming Practice for Beginners",
+        "link": "https://www.codewars.com/",
+        "description": "Beginner-friendly programming challenges with solutions.",
+        "type": "practice",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "2 hours",
+        "resource_type": "Practice"
+      },
+      {
+        "text": "Computer Science Study Plan Creator",
+        "link": "https://trello.com/",
+        "description": "Create structured study plans for CS coursework.",
+        "type": "tool",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "30 mins",
+        "resource_type": "Tool"
+      }
+    ],
+    "Engineering": [
+      {
+        "text": "Engineering Diagram Tools",
+        "link": "https://www.lucidchart.com/pages/",
+        "description": "Create visual diagrams to understand engineering concepts.",
+        "type": "tool",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "30 mins",
+        "resource_type": "Tool"
+      },
+      {
+        "text": "Engineering Calculation Helper",
+        "link": "https://www.wolframalpha.com/",
+        "description": "Tool for verifying engineering calculations and conversions.",
+        "type": "tool",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "15 mins",
+        "resource_type": "Tool"
+      },
+      {
+        "text": "Basic Engineering Projects",
+        "link": "https://www.instructables.com/Engineering-Projects/",
+        "description": "Simple hands-on projects to build engineering skills.",
+        "type": "project",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "1 week",
+        "resource_type": "Project"
+      },
+      {
+        "text": "Engineering Course Support",
+        "link": "https://ocw.mit.edu/search/?f=Undergraduate&d=Engineering",
+        "description": "Supplementary course materials from MIT OpenCourseWare.",
+        "type": "course",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "2 hours",
+        "resource_type": "Course"
+      }
+    ],
+    "Mathematics": [
+      {
+        "text": "Mathematics Anxiety Support",
+        "link": "https://www.mathgoodies.com/articles/math_anxiety",
+        "description": "Strategies for overcoming math anxiety.",
+        "type": "resource",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "10 mins",
+        "resource_type": "Article"
+      },
+      {
+        "text": "Step-by-Step Math Problem Solver",
+        "link": "https://www.symbolab.com/",
+        "description": "Tool that shows detailed steps for solving math problems.",
+        "type": "tool",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "30 mins",
+        "resource_type": "Tool"
+      },
+      {
+        "text": "Visual Calculus Learning",
+        "link": "https://www.geogebra.org/m/hvhfvb93",
+        "description": "Interactive visual demonstrations of calculus concepts.",
+        "type": "tool",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "15 mins",
+        "resource_type": "Tool"
+      },
+      {
+        "text": "Mathematics Concept Maps",
+        "link": "https://www.mindmeister.com/",
+        "description": "Create visual maps connecting mathematical concepts.",
+        "type": "tool",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "15 mins",
+        "resource_type": "Tool"
+      }
+    ],
+    "Business Administration": [
+      {
+        "text": "Business Case Study Simplified",
+        "link": "https://hbsp.harvard.edu/product/EDU100-PDF-ENG",
+        "description": "Guide to analyzing business case studies.",
+        "type": "resource",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "30 mins",
+        "resource_type": "Article"
+      },
+      {
+        "text": "Financial Statements Explained",
+        "link": "https://www.wallstreetprep.com/knowledge/financial-statements/",
+        "description": "Clear explanations of financial statements for accounting courses.",
+        "type": "resource",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "30 mins",
+        "resource_type": "Article"
+      },
+      {
+        "text": "Business Plan Template - Simple",
+        "link": "https://www.sba.gov/business-guide/plan-your-business/write-your-business-plan",
+        "description": "Simplified business plan templates for course projects.",
+        "type": "template",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "30 mins",
+        "resource_type": "Template"
+      },
+      {
+        "text": "Management Concepts Visualized",
+        "link": "https://www.mindtools.com/",
+        "description": "Visual learning tools for management theories.",
+        "type": "resource",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "10 mins",
+        "resource_type": "Article"
+      }
+    ],
+    "Psychology": [
+      {
+        "text": "Psychology Research Methods Simplified",
+        "link": "https://www.simplypsychology.org/research-methods.html",
+        "description": "Clear explanations of research methods in psychology.",
+        "type": "resource",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "20 mins",
+        "resource_type": "Article"
+      },
+      {
+        "text": "Psychology Statistics Made Simple",
+        "link": "https://www.statmethods.net/",
+        "description": "Simplified approach to statistics for psychology students.",
+        "type": "resource",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "30 mins",
+        "resource_type": "Article"
+      },
+      {
+        "text": "Memory Techniques for Psychology Exams",
+        "link": "https://www.learningscientists.org/downloadable-materials",
+        "description": "Evidence-based study strategies for psychology content.",
+        "type": "resource",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "10 mins",
+        "resource_type": "Article"
+      },
+      {
+        "text": "Psychology Concept Mapping Tools",
+        "link": "https://coggle.it/",
+        "description": "Create visual maps of psychological theories and concepts.",
+        "type": "tool",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "15 mins",
+        "resource_type": "Tool"
+      }
+    ]
+  },
+  "1.51 - 2.00": {
+    "Computer Science": [
+      {
+        "text": "Python Programming Practice",
+        "link": "https://www.hackerrank.com/domains/python",
+        "description": "Structured programming challenges with automated feedback.",
+        "type": "practice",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "2 hours",
+        "resource_type": "Practice"
+      },
+      {
+        "text": "Data Structures Visualized",
+        "link": "https://visualgo.net/en",
+        "description": "Interactive visualizations of data structures.",
+        "type": "tool",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "15 mins",
+        "resource_type": "Tool"
+      },
+      {
+        "text": "CS Study Group Finder",
+        "link": "https://discord.gg/code",
+        "description": "Find study partners for specific CS courses.",
+        "type": "peer_group",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "N/A",
+        "resource_type": "Peer Group"
+      },
+      {
+        "text": "Object-Oriented Programming Tutorial",
+        "link": "https://www.codecademy.com/learn/learn-intermediate-python-3",
+        "description": "Interactive tutorial on object-oriented programming concepts.",
+        "type": "course",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "4 weeks",
+        "resource_type": "Course"
+      }
+    ],
+    "Engineering": [
+      {
+        "text": "Engineering Problem-Solving Strategies",
+        "link": "https://www.coursera.org/learn/engineering-practices",
+        "description": "Methods for approaching complex engineering problems.",
+        "type": "course",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "2 hours",
+        "resource_type": "Course"
+      },
+      {
+        "text": "CAD Tools for Engineering Students",
+        "link": "https://www.autodesk.com/education/edu-software/overview",
+        "description": "Free CAD software for engineering students.",
+        "type": "tool",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "15 mins",
+        "resource_type": "Tool"
+      },
+      {
+        "text": "Engineering Design Portfolio Builder",
+        "link": "https://www.behance.net/galleries/2/Industrial-Design",
+        "description": "Platform for creating an engineering design portfolio.",
+        "type": "tool",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "30 mins",
+        "resource_type": "Tool"
+      },
+      {
+        "text": "Engineering Practice Problems",
+        "link": "https://www.chegg.com/study",
+        "description": "Guided practice problems across engineering disciplines.",
+        "type": "practice",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "2 hours",
+        "resource_type": "Practice"
+      }
+    ],
+    "Mathematics": [
+      {
+        "text": "Calculus I Mastery Course",
+        "link": "https://www.khanacademy.org/math/calculus-1",
+        "description": "Comprehensive calculus course with practice problems.",
+        "type": "course",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "2 hours",
+        "resource_type": "Course"
+      },
+      {
+        "text": "Mathematics Problem-Solving Strategies",
+        "link": "https://artofproblemsolving.com/",
+        "description": "Methods for tackling challenging math problems.",
+        "type": "resource",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "10 mins",
+        "resource_type": "Article"
+      },
+      {
+        "text": "Mathematics Study Schedule Template",
+        "link": "https://www.notion.so/templates/categories/Education",
+        "description": "Create structured study schedules for mathematics courses.",
+        "type": "template",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "30 mins",
+        "resource_type": "Template"
+      },
+      {
+        "text": "Interactive Math Exploration",
+        "link": "https://www.desmos.com/calculator",
+        "description": "Tool for visualizing mathematical functions and concepts.",
+        "type": "tool",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "15 mins",
+        "resource_type": "Tool"
+      }
+    ],
+    "Business Administration": [
+      {
+        "text": "Business Communication Skills",
+        "link": "https://www.linkedin.com/learning/topics/business-communication",
+        "description": "Improve written and verbal communication for business contexts.",
+        "type": "course",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "2 hours",
+        "resource_type": "Course"
+      },
+      {
+        "text": "Excel Skills for Business",
+        "link": "https://www.coursera.org/specializations/excel",
+        "description": "Essential Excel skills for business analytics.",
+        "type": "course",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "4 hours",
+        "resource_type": "Course"
+      },
+      {
+        "text": "Business Case Analysis Framework",
+        "link": "https://www.smartsheet.com/content/case-study-templates",
+        "description": "Templates for structured business case analysis.",
+        "type": "template",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "15 mins",
+        "resource_type": "Template"
+      },
+      {
+        "text": "Marketing Project Portfolio",
+        "link": "https://www.canva.com/create/portfolios/",
+        "description": "Create professional portfolios for marketing coursework.",
+        "type": "tool",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "15 mins",
+        "resource_type": "Tool"
+      }
+    ],
+    "Psychology": [
+      {
+        "text": "APA Style Citation Guide",
+        "link": "https://apastyle.apa.org/style-grammar-guidelines",
+        "description": "Comprehensive guide to APA formatting for psychology papers.",
+        "type": "resource",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "10 mins",
+        "resource_type": "Article"
+      },
+      {
+        "text": "Psychology Study Design Templates",
+        "link": "https://www.scribbr.com/methodology/research-design/",
+        "description": "Templates for designing psychology studies and experiments.",
+        "type": "template",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "15 mins",
+        "resource_type": "Template"
+      },
+      {
+        "text": "Statistical Software for Psychology",
+        "link": "https://www.jamovi.org/",
+        "description": "Free statistical software with psychology-specific analyses.",
+        "type": "tool",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "30 mins",
+        "resource_type": "Tool"
+      },
+      {
+        "text": "Psychology Literature Review Guide",
+        "link": "https://writingcenter.unc.edu/tips-and-tools/literature-reviews/",
+        "description": "Step-by-step guide to writing psychology literature reviews.",
+        "type": "resource",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "10 mins",
+        "resource_type": "Article"
+      }
+    ]
+  },
+  "2.01 - 2.50": {
+    "Computer Science": [
+      {
+        "text": "Intermediate Programming Exercises",
+        "link": "https://leetcode.com/problemset/all/?difficulty=EASY&page=1",
+        "description": "Practice programming with structured exercises of increasing difficulty.",
+        "type": "practice",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "2 hours",
+        "resource_type": "Practice"
+      },
+      {
+        "text": "Algorithm Design and Analysis",
+        "link": "https://www.coursera.org/learn/algorithms-part1",
+        "description": "Learn efficient algorithm design and analysis techniques.",
+        "type": "course",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "4 hours",
+        "resource_type": "Course"
+      },
+      {
+        "text": "GitHub Student Developer Pack",
+        "link": "https://education.github.com/pack",
+        "description": "Free developer tools and services for CS students.",
+        "type": "resource",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "30 mins",
+        "resource_type": "Article"
+      },
+      {
+        "text": "CS Project Ideas Repository",
+        "link": "https://github.com/karan/Projects",
+        "description": "Collection of practical project ideas to improve coding skills.",
+        "type": "project",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "3 days",
+        "resource_type": "Project"
+      }
+    ],
+    "Engineering": [
+      {
+        "text": "Engineering Simulation Tools",
+        "link": "https://www.ansys.com/academic/students",
+        "description": "Simulation software for engineering projects.",
+        "type": "tool",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "15 mins",
+        "resource_type": "Tool"
+      },
+      {
+        "text": "Technical Writing for Engineers",
+        "link": "https://www.coursera.org/learn/technical-writing",
+        "description": "Improve technical documentation skills for engineering reports.",
+        "type": "course",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "2 hours",
+        "resource_type": "Course"
+      },
+      {
+        "text": "Engineering Professional Organizations",
+        "link": "https://www.nspe.org/resources/students",
+        "description": "Student memberships in engineering professional societies.",
+        "type": "resource",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "20 mins",
+        "resource_type": "Article"
+      },
+      {
+        "text": "3D Modeling for Engineers",
+        "link": "https://www.autodesk.com/campaigns/education/fusion-360-education",
+        "description": "Learn 3D modeling for engineering design projects.",
+        "type": "tool",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "30 mins",
+        "resource_type": "Tool"
+      }
+    ],
+    "Mathematics": [
+      {
+        "text": "Linear Algebra Essentials",
+        "link": "https://www.khanacademy.org/math/linear-algebra",
+        "description": "Core concepts and applications of linear algebra.",
+        "type": "course",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "1 day",
+        "resource_type": "Course"
+      },
+      {
+        "text": "Mathematics Problem Repository",
+        "link": "https://www.mathproblemgenerator.com/",
+        "description": "Generate practice problems for various math subjects.",
+        "type": "practice",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "2 hours",
+        "resource_type": "Practice"
+      },
+      {
+        "text": "LaTeX for Mathematics",
+        "link": "https://www.overleaf.com/learn/latex/Mathematics",
+        "description": "Learn to typeset mathematical equations using LaTeX.",
+        "type": "tool",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "30 mins",
+        "resource_type": "Tool"
+      },
+      {
+        "text": "Statistics and Probability Course",
+        "link": "https://www.khanacademy.org/math/statistics-probability",
+        "description": "Comprehensive statistics course with applications.",
+        "type": "course",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "4 weeks",
+        "resource_type": "Course"
+      }
+    ],
+    "Business Administration": [
+      {
+        "text": "Business Analytics with Excel",
+        "link": "https://www.edx.org/professional-certificate/microsoft-excel-data-analyst",
+        "description": "Develop Excel skills for business data analysis.",
+        "type": "course",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "3 weeks",
+        "resource_type": "Course"
+      },
+      {
+        "text": "Marketing Strategy Framework",
+        "link": "https://www.hubspot.com/marketing-plan-template",
+        "description": "Template for developing comprehensive marketing strategies.",
+        "type": "template",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "15 mins",
+        "resource_type": "Template"
+      },
+      {
+        "text": "Financial Analysis Tools",
+        "link": "https://www.wallstreetprep.com/self-study-programs/",
+        "description": "Resources for financial statement analysis and modeling.",
+        "type": "tool",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "15 mins",
+        "resource_type": "Tool"
+      },
+      {
+        "text": "Business Networking Platform",
+        "link": "https://www.linkedin.com/",
+        "description": "Build a professional network in your business specialty.",
+        "type": "resource",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "20 mins",
+        "resource_type": "Article"
+      }
+    ],
+    "Psychology": [
+      {
+        "text": "Statistical Methods for Psychology",
+        "link": "https://www.udemy.com/course/statistics-for-data-science-and-business-analysis/",
+        "description": "Statistical analysis techniques used in psychological research.",
+        "type": "course",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "4 hours",
+        "resource_type": "Course"
+      },
+      {
+        "text": "Psychology Research Methods Workshop",
+        "link": "https://www.coursera.org/learn/quantitative-methods",
+        "description": "Hands-on workshop for psychology research design.",
+        "type": "course",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "4 hours",
+        "resource_type": "Course"
+      },
+      {
+        "text": "Experimental Psychology Resources",
+        "link": "https://www.psytoolkit.org/",
+        "description": "Tools for creating psychology experiments.",
+        "type": "tool",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "30 mins",
+        "resource_type": "Tool"
+      },
+      {
+        "text": "Psychology Data Analysis Software",
+        "link": "https://www.jamovi.org/",
+        "description": "User-friendly software for analyzing psychology research data.",
+        "type": "tool",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "30 mins",
+        "resource_type": "Tool"
+      }
+    ]
+  },
+  "2.51 - 3.00": {
+    "Computer Science": [
+      {
+        "text": "Advanced Data Structures",
+        "link": "https://www.coursera.org/learn/advanced-data-structures",
+        "description": "Learn advanced data structures for complex programming challenges.",
+        "type": "course",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "4 weeks",
+        "resource_type": "Course"
+      },
+      {
+        "text": "Competitive Programming Training",
+        "link": "https://codeforces.com/",
+        "description": "Improve algorithm skills through competitive programming.",
+        "type": "practice",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "2 hours",
+        "resource_type": "Practice"
+      },
+      {
+        "text": "Open Source Contribution Guide",
+        "link": "https://github.com/firstcontributions/first-contributions",
+        "description": "Steps to start contributing to open source projects.",
+        "type": "project",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "1 week",
+        "resource_type": "Project"
+      },
+      {
+        "text": "CS Research Opportunities",
+        "link": "https://www.nsf.gov/crssprgm/reu/list_result.jsp?unitid=5049",
+        "description": "Research experiences for computer science undergraduates.",
+        "type": "opportunity",
+        "category": "academic",
+        "difficulty": "Advanced",
+        "time_to_complete": "N/A",
+        "resource_type": "Opportunity"
+      }
+    ],
+    "Engineering": [
+      {
+        "text": "Engineering Ethics Course",
+        "link": "https://www.edx.org/learn/engineering/dartmouth-college-engineering-ethics",
+        "description": "Understand the ethical dimensions of engineering decisions.",
+        "type": "course",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "4 weeks",
+        "resource_type": "Course"
+      },
+      {
+        "text": "Advanced Engineering Mathematics",
+        "link": "https://ocw.mit.edu/courses/mathematics/18-03-differential-equations-spring-2010/",
+        "description": "Mathematical methods for solving engineering problems.",
+        "type": "course",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "1 day",
+        "resource_type": "Course"
+      },
+      {
+        "text": "Engineering Internship Opportunities",
+        "link": "https://www.engineerjobs.com/internships/",
+        "description": "Find internships in various engineering fields.",
+        "type": "opportunity",
+        "category": "academic",
+        "difficulty": "Advanced",
+        "time_to_complete": "N/A",
+        "resource_type": "Opportunity"
+      },
+      {
+        "text": "Engineering Design Competitions",
+        "link": "https://www.asme.org/competitions-awards/competitions",
+        "description": "Participate in engineering design challenges.",
+        "type": "competition",
+        "category": "academic",
+        "difficulty": "Advanced",
+        "time_to_complete": "N/A",
+        "resource_type": "Competition"
+      }
+    ],
+    "Mathematics": [
+      {
+        "text": "Real Analysis Fundamentals",
+        "link": "https://ocw.mit.edu/courses/mathematics/18-100a-real-analysis-fall-2020/",
+        "description": "Rigorous treatment of advanced mathematical concepts.",
+        "type": "course",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "4 weeks",
+        "resource_type": "Course"
+      },
+      {
+        "text": "Mathematics Research Opportunities",
+        "link": "https://www.nsf.gov/crssprgm/reu/list_result.jsp?unitid=5044",
+        "description": "Undergraduate research positions in mathematics.",
+        "type": "opportunity",
+        "category": "academic",
+        "difficulty": "Advanced",
+        "time_to_complete": "N/A",
+        "resource_type": "Opportunity"
+      },
+      {
+        "text": "Mathematical Proof Techniques",
+        "link": "https://www.coursera.org/learn/mathematical-thinking",
+        "description": "Strengthen your mathematical reasoning and proof-writing skills.",
+        "type": "course",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "1 day",
+        "resource_type": "Course"
+      },
+      {
+        "text": "Advanced Mathematics Problem Solving",
+        "link": "https://artofproblemsolving.com/community",
+        "description": "Community for solving challenging mathematics problems.",
+        "type": "practice",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "2 hours",
+        "resource_type": "Practice"
+      }
+    ],
+    "Business Administration": [
+      {
+        "text": "Bloomberg Market Concepts",
+        "link": "https://www.bloomberg.com/professional/product/bloomberg-market-concepts/",
+        "description": "Learn to use Bloomberg financial data and analysis tools.",
+        "type": "course",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "2 hours",
+        "resource_type": "Course"
+      },
+      {
+        "text": "Business Case Competition Teams",
+        "link": "https://www.thecasecentre.org/competitions/",
+        "description": "Join teams competing in business case competitions.",
+        "type": "competition",
+        "category": "academic",
+        "difficulty": "Advanced",
+        "time_to_complete": "N/A",
+        "resource_type": "Competition"
+      },
+      {
+        "text": "Financial Modeling Excellence",
+        "link": "https://www.wallstreetprep.com/",
+        "description": "Develop professional financial modeling skills.",
+        "type": "course",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "4 hours",
+        "resource_type": "Course"
+      },
+      {
+        "text": "Business Research Methods",
+        "link": "https://www.coursera.org/learn/research-methods",
+        "description": "Learn methodologies for conducting business research.",
+        "type": "course",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "4 hours",
+        "resource_type": "Course"
+      }
+    ],
+    "Psychology": [
+      {
+        "text": "Psychology Research Methods - Advanced",
+        "link": "https://www.coursera.org/learn/psychological-research",
+        "description": "Advanced approaches to designing and conducting psychology research.",
+        "type": "course",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "4 weeks",
+        "resource_type": "Course"
+      },
+      {
+        "text": "Psychology Lab Assistant Opportunities",
+        "link": "https://www.apa.org/education-career/undergrad/research-opportunities",
+        "description": "Work as a research assistant in a psychology lab.",
+        "type": "opportunity",
+        "category": "academic",
+        "difficulty": "Advanced",
+        "time_to_complete": "N/A",
+        "resource_type": "Opportunity"
+      },
+      {
+        "text": "Advanced Statistical Methods for Psychology",
+        "link": "https://www.udemy.com/course/statistics-for-psychological-research/",
+        "description": "Learn advanced statistical techniques specific to psychological research.",
+        "type": "course",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "4 weeks",
+        "resource_type": "Course"
+      },
+      {
+        "text": "Experimental Psychology Resources",
+        "link": "https://www.psytoolkit.org/",
+        "description": "Tools for designing and conducting psychology experiments.",
+        "type": "tool",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "15 mins",
+        "resource_type": "Tool"
+      }
+    ]
+  },
+  "3.01 - 3.50": {
+    "Computer Science": [
+      {
+        "text": "Advanced Algorithms Course",
+        "link": "https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-046j-design-and-analysis-of-algorithms-spring-2015/",
+        "description": "High-level algorithm design and analysis techniques.",
+        "type": "course",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "1 day",
+        "resource_type": "Course"
+      },
+      {
+        "text": "Machine Learning Fundamentals",
+        "link": "https://www.coursera.org/learn/machine-learning",
+        "description": "Introduction to machine learning concepts and applications.",
+        "type": "course",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "4 hours",
+        "resource_type": "Course"
+      },
+      {
+        "text": "Technical Interview Preparation",
+        "link": "https://leetcode.com/explore/interview/",
+        "description": "Practice for technical interviews at top tech companies.",
+        "type": "practice",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "1 hour",
+        "resource_type": "Practice"
+      },
+      {
+        "text": "Research Paper Reading Groups",
+        "link": "https://paperswithcode.com/",
+        "description": "Explore cutting-edge computer science research papers.",
+        "type": "resource",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "20 mins",
+        "resource_type": "Article"
+      }
+    ],
+    "Engineering": [
+      {
+        "text": "Computational Methods for Engineers",
+        "link": "https://ocw.mit.edu/courses/mechanical-engineering/2-086-numerical-computation-for-mechanical-engineers-fall-2014/",
+        "description": "Advanced computational techniques for engineering problems.",
+        "type": "course",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "2 hours",
+        "resource_type": "Course"
+      },
+      {
+        "text": "Research Publication Opportunities",
+        "link": "https://www.ijert.org/",
+        "description": "Publish engineering research in academic journals.",
+        "type": "opportunity",
+        "category": "academic",
+        "difficulty": "Advanced",
+        "time_to_complete": "N/A",
+        "resource_type": "Opportunity"
+      },
+      {
+        "text": "Engineering Leadership Development",
+        "link": "https://www.asee.org/",
+        "description": "Programs to develop leadership skills in engineering contexts.",
+        "type": "resource",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "30 mins",
+        "resource_type": "Article"
+      },
+      {
+        "text": "Advanced CAD/CAM Techniques",
+        "link": "https://www.autodesk.com/education/home",
+        "description": "Advanced computer-aided design and manufacturing methods.",
+        "type": "course",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "4 weeks",
+        "resource_type": "Course"
+      }
+    ],
+    "Mathematics": [
+      {
+        "text": "Abstract Algebra Course",
+        "link": "https://ocw.mit.edu/courses/mathematics/18-703-modern-algebra-spring-2013/",
+        "description": "Advanced course on abstract algebraic structures.",
+        "type": "course",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "3 weeks",
+        "resource_type": "Course"
+      },
+      {
+        "text": "Mathematics Conference Opportunities",
+        "link": "https://www.ams.org/meetings/students/students",
+        "description": "Attend and present at undergraduate mathematics conferences.",
+        "type": "opportunity",
+        "category": "academic",
+        "difficulty": "Advanced",
+        "time_to_complete": "N/A",
+        "resource_type": "Opportunity"
+      },
+      {
+        "text": "Advanced Mathematical Software",
+        "link": "https://www.sagemath.org/",
+        "description": "Open-source mathematical software for advanced computations.",
+        "type": "tool",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "30 mins",
+        "resource_type": "Tool"
+      },
+      {
+        "text": "Mathematical Research Projects",
+        "link": "https://www.ams.org/programs/students/undergrad/undergrad",
+        "description": "Engage in undergraduate mathematical research projects.",
+        "type": "project",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "1 week",
+        "resource_type": "Project"
+      }
+    ],
+    "Business Administration": [
+      {
+        "text": "Advanced Financial Modeling",
+        "link": "https://corporatefinanceinstitute.com/resources/knowledge/modeling/",
+        "description": "Sophisticated financial modeling techniques for business analysis.",
+        "type": "course",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "4 hours",
+        "resource_type": "Course"
+      },
+      {
+        "text": "Business Research Methods",
+        "link": "https://www.coursera.org/specializations/business-statistics-analysis",
+        "description": "Advanced statistical methods for business research.",
+        "type": "course",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "1 day",
+        "resource_type": "Course"
+      },
+      {
+        "text": "Strategic Management Analysis",
+        "link": "https://hbr.org/topic/strategic-planning",
+        "description": "Resources for advanced strategic business planning.",
+        "type": "resource",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "30 mins",
+        "resource_type": "Article"
+      },
+      {
+        "text": "Business Process Improvement Methodologies",
+        "link": "https://www.sixsigma-institute.org/",
+        "description": "Learn methodologies like Six Sigma for business optimization.",
+        "type": "course",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "4 hours",
+        "resource_type": "Course"
+      }
+    ],
+    "Psychology": [
+      {
+        "text": "Advanced Research Design in Psychology",
+        "link": "https://www.coursera.org/learn/quantitative-methods",
+        "description": "Sophisticated research methodologies for psychological studies.",
+        "type": "course",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "3 weeks",
+        "resource_type": "Course"
+      },
+      {
+        "text": "Psychology Conference Presentations",
+        "link": "https://www.apa.org/science/leadership/students/poster-sessions",
+        "description": "Present research at psychology conferences.",
+        "type": "opportunity",
+        "category": "academic",
+        "difficulty": "Advanced",
+        "time_to_complete": "N/A",
+        "resource_type": "Opportunity"
+      },
+      {
+        "text": "Advanced Psychometric Analysis",
+        "link": "https://www.psychometricsociety.org/",
+        "description": "Learn advanced techniques for psychological measurement.",
+        "type": "resource",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "20 mins",
+        "resource_type": "Article"
+      },
+      {
+        "text": "Neuroscience Fundamentals for Psychologists",
+        "link": "https://www.coursera.org/learn/neurobiology",
+        "description": "Understand the neurobiological basis of psychological phenomena.",
+        "type": "course",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "4 weeks",
+        "resource_type": "Course"
+      }
+    ]
+  },
+  "3.51 - 4.00": {
+    "Computer Science": [
+      {
+        "text": "Graduate-Level Computer Science Courses",
+        "link": "https://online.stanford.edu/programs/computer-science",
+        "description": "Access graduate-level CS courses while still an undergraduate.",
+        "type": "course",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "2 hours",
+        "resource_type": "Course"
+      },
+      {
+        "text": "Research Assistant Positions",
+        "link": "https://www.nsf.gov/crssprgm/reu/reu_search.jsp",
+        "description": "Work directly with professors on cutting-edge CS research.",
+        "type": "opportunity",
+        "category": "academic",
+        "difficulty": "Advanced",
+        "time_to_complete": "N/A",
+        "resource_type": "Opportunity"
+      },
+      {
+        "text": "Academic Publication Opportunities",
+        "link": "https://www.acm.org/publications/students",
+        "description": "Publish your research in computer science journals and conferences.",
+        "type": "opportunity",
+        "category": "academic",
+        "difficulty": "Advanced",
+        "time_to_complete": "N/A",
+        "resource_type": "Opportunity"
+      },
+      {
+        "text": "CS Conference Travel Grants",
+        "link": "https://www.acm.org/chapters/students/travel-grants",
+        "description": "Apply for funding to attend academic CS conferences.",
+        "type": "opportunity",
+        "category": "academic",
+        "difficulty": "Advanced",
+        "time_to_complete": "N/A",
+        "resource_type": "Opportunity"
+      }
+    ],
+    "Engineering": [
+      {
+        "text": "Engineering Research Publication Opportunities",
+        "link": "https://www.ijert.org/",
+        "description": "Work with faculty to publish research papers.",
+        "type": "opportunity",
+        "category": "academic",
+        "difficulty": "Advanced",
+        "time_to_complete": "N/A",
+        "resource_type": "Opportunity"
+      },
+      {
+        "text": "National Engineering Design Competitions",
+        "link": "https://www.asme.org/competitions-and-events",
+        "description": "Showcase your skills in prestigious engineering competitions.",
+        "type": "competition",
+        "category": "academic",
+        "difficulty": "Advanced",
+        "time_to_complete": "N/A",
+        "resource_type": "Competition"
+      },
+      {
+        "text": "Graduate School Application Strategy",
+        "link": "https://www.petersons.com/graduate-schools.aspx",
+        "description": "Resources for applying to engineering graduate programs.",
+        "type": "resource",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "20 mins",
+        "resource_type": "Article"
+      },
+      {
+        "text": "Engineering Thesis Development",
+        "link": "https://www.ieee.org/education/index.html",
+        "description": "Support for developing an undergraduate engineering thesis.",
+        "type": "resource",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "10 mins",
+        "resource_type": "Article"
+      }
+    ],
+    "Mathematics": [
+      {
+        "text": "Graduate-Level Mathematics Courses",
+        "link": "https://ocw.mit.edu/courses/mathematics/",
+        "description": "Access graduate-level mathematics courses.",
+        "type": "course",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "2 hours",
+        "resource_type": "Course"
+      },
+      {
+        "text": "Mathematics Research Paper Publication",
+        "link": "https://www.ams.org/journals/",
+        "description": "Publish your mathematical research in academic journals.",
+        "type": "opportunity",
+        "category": "academic",
+        "difficulty": "Advanced",
+        "time_to_complete": "N/A",
+        "resource_type": "Opportunity"
+      },
+      {
+        "text": "Mathematics Competition Training",
+        "link": "https://artofproblemsolving.com/",
+        "description": "Prepare for high-level mathematics competitions.",
+        "type": "practice",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "1 hour",
+        "resource_type": "Practice"
+      },
+      {
+        "text": "Mathematics Honors Thesis",
+        "link": "https://www.ams.org/programs/students/undergrad/undergrad",
+        "description": "Guidance for developing a distinguished mathematics thesis.",
+        "type": "resource",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "30 mins",
+        "resource_type": "Article"
+      }
+    ],
+    "Business Administration": [
+      {
+        "text": "CFA Certification Preparation",
+        "link": "https://www.cfainstitute.org/",
+        "description": "Prepare for the Chartered Financial Analyst examination.",
+        "type": "certification",
+        "category": "academic",
+        "difficulty": "Advanced",
+        "time_to_complete": "12 weeks",
+        "resource_type": "Certification"
+      },
+      {
+        "text": "Business Research Publication",
+        "link": "https://www.tandfonline.com/journals",
+        "description": "Publish your business research in academic journals.",
+        "type": "opportunity",
+        "category": "academic",
+        "difficulty": "Advanced",
+        "time_to_complete": "N/A",
+        "resource_type": "Opportunity"
+      },
+      {
+        "text": "Leadership Development Program",
+        "link": "https://www.mindtools.com/pages/article/leadership-development.htm",
+        "description": "Advanced training for developing business leadership skills.",
+        "type": "program",
+        "category": "academic",
+        "difficulty": "Advanced",
+        "time_to_complete": "8 weeks",
+        "resource_type": "Program"
+      },
+      {
+        "text": "Advanced Business Analytics",
+        "link": "https://www.coursera.org/specializations/advanced-business-analytics",
+        "description": "Master sophisticated business analytics techniques.",
+        "type": "course",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "3 weeks",
+        "resource_type": "Course"
+      }
+    ],
+    "Psychology": [
+      {
+        "text": "Psychology Honors Thesis Support",
+        "link": "https://www.apa.org/education-career/undergrad/honors-thesis",
+        "description": "Resources for completing an exceptional honors thesis in psychology.",
+        "type": "resource",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "30 mins",
+        "resource_type": "Article"
+      },
+      {
+        "text": "Graduate School Application Preparation",
+        "link": "https://www.apa.org/education-career/grad/applying",
+        "description": "Guidance for applying to competitive psychology graduate programs.",
+        "type": "resource",
+        "category": "academic",
+        "difficulty": "Beginner",
+        "time_to_complete": "30 mins",
+        "resource_type": "Article"
+      },
+      {
+        "text": "Psychology Research Journal Publication",
+        "link": "https://www.apa.org/pubs/journals/students",
+        "description": "Publish your research in psychology journals.",
+        "type": "opportunity",
+        "category": "academic",
+        "difficulty": "Advanced",
+        "time_to_complete": "N/A",
+        "resource_type": "Opportunity"
+      },
+      {
+        "text": "Advanced Clinical Assessment Techniques",
+        "link": "https://www.apa.org/ed/graduate/specialize/assessment",
+        "description": "Learn sophisticated psychological assessment methodologies.",
+        "type": "course",
+        "category": "academic",
+        "difficulty": "Intermediate",
+        "time_to_complete": "1 day",
+        "resource_type": "Course"
+      }
+    ]
+  }
+}
