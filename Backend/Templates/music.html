@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Library | MindBalance</title>
+  <!-- Favicon for browser tab icon -->
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+  <!-- Bootstrap CSS framework for responsive design -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* 
+     * CSS Variables - Consistent theming across application
+     * Using a colour palette focused on calming purples and pinks
+     * These colours were chosen specifically for mental health applications
+     */
+    :root {
+      --primary-color: #6a0572;      /* Purple - Primary brand colour */
+      --secondary-color: #ffb3c6;    /* Light Pink - Secondary/accent colour */
+      --secondary-hover: #ff85a1;    /* Darker Pink - Hover state */
+      --bg-gradient-start: #fde2e4;  /* Light Pink - Gradient start */
+      --bg-gradient-mid: #fad2e1;    /* Mid Pink - Gradient middle */
+      --bg-gradient-end: #bee1e6;    /* Light Blue - Gradient end */
+      --text-color: #495057;         /* Dark Grey - Main text */
+      --text-light: #6c757d;         /* Medium Grey - Secondary text */
+      --white: #ffffff;              /* White */
+      --border-radius-md: 12px;      /* Medium border radius */
+      --border-radius-lg: 20px;      /* Large border radius */
+      --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.1); /* Box shadow */
+    }
+
+    /* 
+     * Base body styling with gradient background
+     * This gradient creates a calming visual effect across the viewport
+     */
+    body {
+      background: linear-gradient(to right, var(--bg-gradient-start), var(--bg-gradient-mid), var(--bg-gradient-end));
+      font-family: sans-serif;
+      color: var(--text-color);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column; /* Ensures footer stays at bottom */
+    }
+
+    /* Navigation bar styling */
+    .navbar {
+      background: var(--white);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+      color: var(--primary-color) !important;
+    }
+
+    /* Main content area styling */
+    .page-content {
+      flex: 1; /* Takes available space */
+      padding: 20px 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    /* Main heading styling */
+    .music-section h1 {
+      color: var(--primary-color);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    /* 
+     * Card styling for preference selection and results
+     * Semi-transparent white background with rounded corners and shadow
+     */
+    .card {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: var(--border-radius-lg);
+      padding: 2rem;
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 2rem;
+    }
+
+    /* Card title styling */
+    .card-title {
+      color: var(--primary-color);
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    /* Form field group styling */
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    /* Form label styling */
+    .form-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--primary-color);
+    }
+
+    /* Form input field styling */
+    .form-control {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #ddd;
+      border-radius: var(--border-radius-md);
+      font-size: 1rem;
+    }
+
+    /* 
+     * Gender selection card container
+     * Flexible layout that adapts to screen size
+     */
+    .gender-options {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* 
+     * Individual gender selection card
+     * Interactive cards with hover and active states
+     */
+    .gender-card {
+      flex: 1;
+      min-width: 120px;
+      border: 2px solid #e9ecef;
+      border-radius: var(--border-radius-md);
+      padding: 1rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s ease; /* Smooth transition for interactions */
+    }
+
+    /* Hover effect for gender cards */
+    .gender-card:hover {
+      border-color: var(--secondary-color);
+    }
+
+    /* Active state for selected gender card */
+    .gender-card.active {
+      border-color: var(--secondary-color);
+      background-color: rgba(255, 179, 198, 0.1);
+    }
+
+    /* Icon styling in gender cards */
+    .gender-card-icon {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Title styling in gender cards */
+    .gender-card-title {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    /* Subtitle styling in gender cards */
+    .gender-card-subtitle {
+      font-size: 0.8rem;
+      color: var(--text-light);
+    }
+
+    /* General button styling */
+    .btn {
+      padding: 0.75rem 1.5rem;
+      border-radius: var(--border-radius-md);
+      border: none;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    /* Primary button styling */
+    .btn-primary {
+      background-color: var(--secondary-color);
+      color: white;
+    }
+
+    /* Primary button hover effect */
+    .btn-primary:hover {
+      background-color: var(--secondary-hover);
+    }
+
+    /* 
+     * Sparkle button styling
+     * Used for the main action button with animation effects
+     */
+    .sparkle-btn {
+      display: block;
+      width: 100%;
+      margin-top: 1rem;
+      position: relative;
+      overflow: hidden; /* For shine animation */
+      transition: all 0.3s ease;
+    }
+
+    /* Search icon styling */
+    .search-icon {
+      margin-right: 0.5rem;
+    }
+
+    /* 
+     * Music tracks container
+     * Vertical stack of music track cards
+     */
+    .music-tracks {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    /* 
+     * Individual music track card
+     * Horizontal layout with image and track information
+     */
+    .music-track-card {
+      display: flex;
+      background: #f8f9fa;
+      border-radius: var(--border-radius-md);
+      overflow: hidden;
+    }
+
+    /* Track image container */
+    .track-image {
+      width: 120px;
+      height: 120px;
+    }
+
+    /* Track image styling */
+    .track-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Prevents image distortion */
+    }
+
+    /* Track information container */
+    .track-info {
+      flex: 1;
+      padding: 1rem;
+    }
+
+    /* Track title styling */
+    .track-title {
+      margin: 0 0 0.5rem;
+      font-size: 1.2rem;
+      color: var(--primary-color);
+    }
+
+    /* Artist name styling */
+    .track-artist {
+      margin: 0 0 0.75rem;
+      color: var(--text-light);
+    }
+
+    /* 
+     * Track actions container
+     * Holds audio controls and like button
+     */
+    .track-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* Audio player styling */
+    .track-actions audio {
+      max-width: 70%;
+      height: 30px;
+    }
+
+    /* Small button styling */
+    .btn-sm {
+      padding: 0.25rem 0.5rem;
+      font-size: 0.875rem;
+    }
+
+    /* Outline button styling */
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--secondary-color);
+      color: var(--secondary-color);
+    }
+
+    /* 
+     * Like button styling
+     * Heart icon button with animation on click
+     */
+    .btn-like {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Animation for liked state */
+    .btn-like.liked {
+      animation: pulse 0.3s ease;
+    }
+
+    /* Pulse animation keyframes */
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    /* 
+     * Success popup notification
+     * Shows temporarily when tracks are found
+     */
+    .success-popup {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--secondary-color);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: var(--border-radius-md);
+      box-shadow: var(--shadow-lg);
+      z-index: 1000;
+    }
+
+    /* 
+     * Scroll to top button
+     * Fixed position button that appears when scrolling down
+     */
+    #scrollTopBtn {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 99;
+      background-color: var(--secondary-color);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      box-shadow: var(--shadow-lg);
+    }
+
+    /* Hover effect for scroll top button */
+    #scrollTopBtn:hover {
+      background-color: var(--secondary-hover);
+    }
+
+    /* Footer styling */
+    footer {
+      margin-top: auto;
+      padding: 1rem;
+      background: rgba(255,255,255,0.8);
+      text-align: center;
+      color: var(--text-light);
+    }
+
+    /* 
+     * Responsive design adjustments for smaller screens
+     * Changes layouts to better fit mobile devices
+     */
+    @media (max-width: 768px) {
+      /* Stack gender cards vertically on mobile */
+      .gender-options {
+        flex-direction: column;
+      }
+      
+      /* Change music track cards to vertical layout on mobile */
+      .music-track-card {
+        flex-direction: column;
+      }
+      
+      /* Adjust track image size for vertical layout */
+      .track-image {
+        width: 100%;
+        height: 200px;
+      }
+      
+      /* Stack track actions vertically on mobile */
+      .track-actions {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: flex-start;
+      }
+      
+      /* Full-width audio player on mobile */
+      .track-actions audio {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- 
+  Navigation Bar
+  Provides consistent navigation across all app pages
+  Highlights current page (Music Library) with bold styling
+-->
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="/">💆 MindBalance</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <!-- Music Library link is bold to show current page -->
+        <li class="nav-item"><a class="nav-link fw-bold" style="color: var(--primary-color) !important;" href="/music">Music Library</a></li>
+        <li class="nav-item"><a class="nav-link" href="/dashboard">Dashboard</a></li>
+        <li class="nav-item"><a class="nav-link" href="/chatbot">Chatbot</a></li>
+        <li class="nav-item"><a class="nav-link" href="/self-referral">Self-Referral</a></li>
+        <li class="nav-item"><a class="nav-link" href="/mood-graph">Mood Graph</a></li>
+        <li class="nav-item"><a class="nav-link" href="/about-us">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="/journal">Journal</a></li>
+        <li class="nav-item"><a class="nav-link" href="/profile">Profile</a></li>
+        <li class="nav-item"><a class="nav-link text-danger" href="/logout">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- 
+  Main Content Section
+  Contains music preference selection and results display
+-->
+<div class="page-content">
+  <div class="container">
+    <div class="music-section">
+      <h1 class="text-center">🎵 Music Library</h1>
+      <p class="text-center mb-4">Discover music tailored to your emotions, preferences, and taste.</p>
+
+      <!-- 
+        Music Preferences Card
+        Allows users to select preferences for personalised recommendations
+      -->
+      <div class="card">
+        <h2 class="card-title">Music Preferences</h2>
+
+        <!-- 
+          Artist Gender Preference Selection
+          Selectable cards for filtering by artist gender
+          Important for personalisation and representation
+        -->
+        <div class="form-group">
+          <label class="form-label">Artist Gender Preference:</label>
+          <div class="gender-options">
+            <div class="gender-card" data-gender="all">
+              <div class="gender-card-icon">👥</div>
+              <div class="gender-card-title">All Artists</div>
+              <div class="gender-card-subtitle">No preference</div>
+            </div>
+            <div class="gender-card" data-gender="male">
+              <div class="gender-card-icon">👨</div>
+              <div class="gender-card-title">Male Artists</div>
+              <div class="gender-card-subtitle">E.g., Ed Sheeran, Drake</div>
+            </div>
+            <div class="gender-card" data-gender="female">
+              <div class="gender-card-icon">👩</div>
+              <div class="gender-card-title">Female Artists</div>
+              <div class="gender-card-subtitle">E.g., Adele, Beyoncé</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 
+          Mood Selection Dropdown
+          Critical input for emotion-based music recommendations
+          Connects music to current emotional state
+        -->
+        <div class="form-group">
+          <label for="mood" class="form-label">How are you feeling today?</label>
+          <select id="mood" name="mood" class="form-control">
+            <option disabled selected>-- Select Your Mood --</option>
+            <option value="happy">Happy</option>
+            <option value="sad">Sad</option>
+            <option value="relaxing">Relaxed</option>
+            <option value="motivational">Motivated</option>
+          </select>
+        </div>
+
+        <!-- 
+          Genre Selection Dropdown
+          Allows users to further refine music preferences
+          Combines with mood for more targeted recommendations
+        -->
+        <div class="form-group">
+          <label for="genre" class="form-label">What genre do you prefer?</label>
+          <select id="genre" name="genre" class="form-control">
+            <option disabled selected>-- Select Genre --</option>
+            <option value="pop">Pop</option>
+            <option value="rock">Rock</option>
+            <option value="hiphop">Hip Hop</option>
+            <option value="rnb">R&B</option>
+            <option value="jazz">Jazz</option>
+            <option value="classical">Classical</option>
+          </select>
+        </div>
+
+        <!-- 
+          Find Music Button
+          Main action button with animation effect
+          Triggers the music recommendation API call
+        -->
+        <button id="findMusic" class="btn btn-primary sparkle-btn">
+          <span class="search-icon">🔍</span> Find My Music
+        </button>
+      </div>
+
+      <!-- 
+        Music Results Container
+        Initially empty, populated with music recommendations after API call
+        Displays personalised music tracks based on user preferences
+      -->
+      <div id="musicResults" class="mt-4"></div>
+
+      <!-- 
+        Success Popup
+        Temporary notification shown when music is found
+        Provides positive feedback to the user
+      -->
+      <div id="successPopup" class="success-popup" style="display:none;"></div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Scroll to Top Button - hidden by default, shown when scrolling -->
+<button id="scrollTopBtn" title="Go to top">⬆️</button>
+
+<!-- Footer with copyright information -->
+<footer class="footer">
+  <p>&copy; 2025 MindBalance | All Rights Reserved</p>
+</footer>
+
+<!-- 
+  Scripts Section
+  Contains JavaScript for interactive functionality
+  Handles API calls, UI interactions, and dynamic content
+-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+// Define scrollToTop function in global scope
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Function to show/hide scroll button based on scroll position
+function scrollFunction() {
+  const scrollTopBtn = document.getElementById("scrollTopBtn");
+  if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+    scrollTopBtn.style.display = "block";
+  } else {
+    scrollTopBtn.style.display = "none";
+  }
+}
+
+// Main initialisation function when DOM is fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+  const navbarToggler = document.querySelector('.navbar-toggler');
+  const navbarCollapse = document.querySelector('.collapse');
+  const findMusicBtn = document.getElementById('findMusic');
+  const musicResults = document.getElementById('musicResults');
+  const successPopup = document.getElementById('successPopup');
+  const scrollTopBtn = document.getElementById('scrollTopBtn');
+  
+  // Set up scroll top button click handler
+  if (scrollTopBtn) {
+    scrollTopBtn.addEventListener('click', scrollToTop);
+  }
+
+  // Set up scroll listener for showing/hiding scroll button
+  window.addEventListener('scroll', scrollFunction);
+
+  // Set up gender selection card functionality
+  const genderCards = document.querySelectorAll('.gender-card');
+  let selectedGender = 'all'; // Default selection
+  genderCards.forEach(card => {
+    card.addEventListener('click', function() {
+      // Remove active class from all cards
+      genderCards.forEach(c => c.classList.remove('active'));
+      // Add active class to clicked card
+      this.classList.add('active');
+      // Store selected gender value
+      selectedGender = this.dataset.gender;
+    });
+  });
+  // Set default active card
+  genderCards[0].classList.add('active');
+
+  // Set up find music button click handler
+  findMusicBtn.addEventListener('click', function() {
+    const mood = document.getElementById('mood').value;
+    const genre = document.getElementById('genre').value;
+
+    // Validate input selections
+    if (mood === '-- Select Your Mood --' || genre === '-- Select Genre --') {
+      alert('Please select both mood and genre');
+      return;
+    }
+
+    // Disable button and show loading spinner
+    findMusicBtn.disabled = true;
+    findMusicBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Finding...';
+
+    // Show loading state in results area
+    musicResults.innerHTML = `
+      <div class="text-center my-4">
+        <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <p class="mt-3">Finding music for you...</p>
+      </div>
+    `;
+
+    // Make API request for music recommendations
+    fetch(`/music_api?emotion=${mood}&gender=${selectedGender}&genre=${genre}`)
+      .then(response => response.json())
+      .then(data => {
+        // Display music results and show success message
+        displayMusicResults(data);
+        showSuccessPopup(data.tracks.length);
+      })
+      .catch(error => {
+        // Handle API request errors
+        console.error('Error fetching music:', error);
+        musicResults.innerHTML = '<div class="card"><p class="text-center">Sorry, something went wrong. Please try again.</p></div>';
+      })
+      .finally(() => {
+        // Reset button state regardless of outcome
+        findMusicBtn.disabled = false;
+        findMusicBtn.innerHTML = '<span class="search-icon">🔍</span> Find My Music';
+      });
+  });
+
+  // Function to display music results in the UI
+  function displayMusicResults(data) {
+    // Handle case where no tracks were found
+    if (!data.tracks || data.tracks.length === 0) {
+      musicResults.innerHTML = '<div class="card"><p class="text-center">No music found matching your preferences. Try different options.</p></div>';
+      return;
+    }
+
+    // Build HTML for results card
+    let html = `
+      <div class="card">
+        <h2 class="card-title">Your Personalised Playlist</h2>
+        <p class="card-text">Based on artists like ${data.artists.join(', ')}</p>
+        <div class="music-tracks">
+    `;
+
+    // Loop through each track and build track cards
+    data.tracks.forEach(track => {
+      const isLiked = data.liked_titles && data.liked_titles.includes(track.title);
+      html += `
+        <div class="music-track-card">
+          <div class="track-image">
+            <img src="${track.image_url || '/static/images/music-placeholder.jpg'}" alt="${track.title}">
+          </div>
+          <div class="track-info">
+            <h3 class="track-title">${track.title}</h3>
+            <p class="track-artist">${track.artist}</p>
+            <div class="track-actions">
+              ${track.preview_url ? 
+                `<audio controls>
+                  <source src="${track.preview_url}" type="audio/mpeg">
+                  Your browser does not support the audio element.
+                </audio>` : 
+                `<a href="${track.youtube || '#'}" target="_blank" class="btn btn-sm btn-outline">Listen on YouTube</a>`
+              }
+              <button class="btn-like ${isLiked ? 'liked' : ''}" data-title="${track.title}" data-artist="${track.artist}">
+                ${isLiked ? '❤️' : '🤍'}
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+    });
+
+    // Close HTML structure and update results container
+    html += `</div></div>`;
+    musicResults.innerHTML = html;
+
+    // Set up like button functionality for each track
+    document.querySelectorAll('.btn-like').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const title = this.dataset.title;
+        const artist = this.dataset.artist;
+        // Send like request to server
+        fetch('/like_track', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ title, artist }),
+        })
+        .then(response => response.json())
+        .then(data => {
+          // Update UI based on response
+          if (data.success) {
+            this.textContent = '❤️';
+            this.classList.add('liked');
+          } else {
+            alert(data.message);
+          }
+        })
+        .catch(error => console.error('Error liking track:', error));
+      });
+    });
+  }
+
+  // Function to show temporary success popup
+  function showSuccessPopup(numberOfTracks) {
+    successPopup.innerText = `🎶 Found ${numberOfTracks} tracks for you!`;
+    successPopup.style.display = "block";
+    // Hide popup after 3 seconds
+    setTimeout(() => {
+      successPopup.style.display = "none";
+    }, 3000);
+  }
+});
+</script>
+
+</body>
+</html>
