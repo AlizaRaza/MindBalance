@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register | MindBalance</title>
+  <!-- Link to favicon for browser tab icon -->
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+  <!-- Bootstrap CSS framework for responsive design -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* 
+     * Custom styling for the registration page
+     * Using a soothing gradient background and clean, modern interface
+     * This design aims to reduce anxiety during the registration process
+     */
+    body {
+      /* Calming gradient background spanning multiple colors */
+      background: linear-gradient(to right, #fde2e4, #fad2e1, #e2ece9, #bee1e6);
+      color: #495057; /* Dark gray text for readability */
+      font-family: 'Poppins', sans-serif;
+      min-height: 100vh; /* Full viewport height */
+      display: flex;
+      flex-direction: column; /* Allows footer positioning at bottom */
+    }
+    
+    /* Navigation bar styling */
+    .navbar {
+      background-color: #fad2e1; /* Soft pink background */
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    }
+    
+    .navbar-brand {
+      color: #6a0572 !important; /* Purple brand color */
+      font-weight: bold;
+    }
+    
+    /* Main container styling - centers the registration card */
+    .container {
+      flex: 1; /* Takes available space */
+      display: flex;
+      justify-content: center; /* Center horizontally */
+      align-items: center; /* Center vertically */
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+    
+    /* 
+     * Registration card styling with animation
+     * Card "pops in" with animation for visual interest
+     * Semi-transparent white background with shadow for depth
+     */
+    .card {
+      width: 100%;
+      max-width: 450px; /* Limit width for readability */
+      background: rgba(255, 255, 255, 0.95); /* Slightly transparent */
+      border-radius: 20px; /* Rounded corners */
+      box-shadow: 0px 8px 20px rgba(0,0,0,0.1); /* Subtle shadow */
+      animation: popZoom 0.8s ease forwards; /* Entry animation */
+      transform: scale(0.95); /* Starting animation state */
+      opacity: 0;
+    }
+    
+    /* Animation for card appearance - scales and fades in */
+    @keyframes popZoom {
+      0% { transform: scale(0.95); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    
+    /* Card header styling with brand color */
+    .card-header {
+      background-color: #ffb3c6; /* Light pink header */
+      color: white;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+    }
+    
+    /* Heading styling */
+    h3 {
+      color: #6a0572; /* Purple brand color */
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    
+    /* 
+     * Primary button styling with animation effect
+     * Includes "shine" animation for visual feedback
+     * Subtle lift effect on hover
+     */
+    .btn-primary {
+      background-color: #ffb3c6; /* Light pink */
+      border-color: #ffb3c6;
+      position: relative;
+      overflow: hidden; /* For shine effect */
+      transition: background-color 0.3s, transform 0.3s;
+    }
+    
+    .btn-primary:hover {
+      background-color: #ff85a1; /* Darker pink on hover */
+      border-color: #ff85a1;
+      transform: translateY(-2px); /* Slight lift effect */
+    }
+    
+    /* Shine animation effect on buttons */
+    .btn-primary::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -75%;
+      width: 50%;
+      height: 100%;
+      background: rgba(255,255,255,0.4); /* White shine */
+      transform: skewX(-20deg);
+      animation: shine 2s infinite; /* Continuous animation */
+    }
+    
+    @keyframes shine {
+      0% { left: -75%; }
+      50% { left: 125%; }
+      100% { left: 125%; }
+    }
+    
+    /* Secondary button styling */
+    .btn-outline-primary {
+      color: #6a0572; /* Purple text */
+      border-color: #6a0572;
+      transition: background-color 0.3s, color 0.3s;
+      margin-top: 1rem;
+    }
+    
+    .btn-outline-primary:hover {
+      background-color: #6a0572; /* Purple background on hover */
+      color: white;
+    }
+    
+    /* Alert message styling */
+    .alert {
+      font-size: 0.9rem;
+      border-radius: 10px;
+    }
+    
+    /* Footer styling */
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent */
+      font-size: 0.85rem;
+      color: #6c757d; /* Medium gray */
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- 
+  Simplified navigation bar for registration page
+  Only shows the brand logo with a link back to welcome page
+  Minimalist design to keep focus on registration form
+-->
+<nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+  <div class="container">
+    <a class="navbar-brand" href="{{ url_for('welcome') }}">💆 MindBalance</a>
+  </div>
+</nav>
+
+<!-- 
+  Registration Form Container
+  Centered card with form elements for user account creation
+  Collects essential user information for personalization
+-->
+<div class="container">
+  <div class="card shadow">
+    <!-- Card header with title -->
+    <div class="card-header text-center">
+      <h3 class="card-title">Register</h3>
+    </div>
+    
+    <div class="card-body">
+      <!-- 
+        Flash messages display area
+        Shows success/error messages from the backend 
+        Important for user feedback on registration attempts
+      -->
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, message in messages %}
+            <div class="alert alert-{{ category }} text-center" role="alert">
+              {{ message }}
+            </div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+
+      <!-- 
+        Registration form with POST submission
+        novalidate attribute allows for custom validation
+        Each field collects demographic information needed for mental health recommendations
+      -->
+      <form method="POST" action="/register" novalidate>
+        <!-- Username field -->
+        <div class="mb-3">
+          <label for="username" class="form-label">Username</label>
+          <input type="text" class="form-control" id="username" name="username" required>
+        </div>
+
+        <!-- Password field -->
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password" name="password" required>
+        </div>
+
+        <!-- 
+          Age field - demographic information
+          Helps tailor recommendations based on age group
+        -->
+        <div class="mb-3">
+          <label for="age" class="form-label">Age</label>
+          <input type="number" class="form-control" id="age" name="age" required>
+        </div>
+
+        <!-- 
+          Gender selection - demographic information
+          Helps personalize recommendations and user experience
+        -->
+        <div class="mb-3">
+          <label for="gender" class="form-label">Gender</label>
+          <select class="form-select" id="gender" name="gender" required>
+            <option value="" disabled selected>Choose...</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <!-- 
+          Marital status - demographic information
+          Important factor for mental health context and support strategies
+        -->
+        <div class="mb-3">
+          <label for="marital_status" class="form-label">Marital Status</label>
+          <select class="form-select" id="marital_status" name="marital_status" required>
+            <option value="" disabled selected>Choose...</option>
+            <option value="single">Single</option>
+            <option value="married">Married</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <!-- Submit button with full width -->
+        <button type="submit" class="btn btn-primary w-100">Register</button>
+      </form>
+
+      <!-- 
+        Link to login page for existing users
+        Provides easy navigation between authentication pages
+      -->
+      <div class="text-center">
+        <a href="{{ url_for('login') }}" class="btn btn-outline-primary w-100">Already have an account? Login</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer with copyright information -->
+<footer>
+  &copy; 2025 MindBalance | All Rights Reserved
+</footer>
+
+<!-- Bootstrap JavaScript bundle for interactive components -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
