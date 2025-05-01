@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Self-Referral | MindBalance</title>
+  <!-- Link to favicon for browser tab icon -->
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+  <!-- Bootstrap CSS for responsive design framework -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* 
+     * CSS Variables for consistent theming across application
+     * Using a color palette focused on calming pinks and blues
+     * This creates a visually soothing experience for users with mental health concerns
+     */
+    :root {
+      --primary-color: #6a0572;        /* Purple - Primary brand color */
+      --secondary-color: #ffb3c6;      /* Light Pink - Secondary/accent color */
+      --secondary-hover: #ff85a1;      /* Darker Pink - Hover state */
+      --bg-gradient-start: #fde2e4;    /* Light Pink - Gradient start */
+      --bg-gradient-mid: #fad2e1;      /* Mid Pink - Gradient middle */
+      --bg-gradient-end: #bee1e6;      /* Light Blue - Gradient end */
+      --text-color: #495057;           /* Dark Gray - Main text */
+      --text-light: #6c757d;           /* Medium Gray - Secondary text */
+      --white: #ffffff;                /* White */
+      --border-radius-md: 12px;        /* Medium border radius */
+      --border-radius-lg: 20px;        /* Large border radius */
+      --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.1); /* Box shadow */
+    }
+
+    /* 
+     * Base body styles with gradient background
+     * The gradient creates a calming visual effect that changes subtly across the viewport
+     */
+    body {
+      background: linear-gradient(to right, var(--bg-gradient-start), var(--bg-gradient-mid), var(--bg-gradient-end));
+      font-family: sans-serif;
+      color: var(--text-color);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;  /* Enables footer to stay at bottom */
+    }
+
+    /* Navigation bar styling */
+    .navbar {
+      background: var(--white);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+      color: var(--primary-color) !important;
+    }
+
+    /* Main content container styles */
+    .page-content {
+      flex: 1;                /* Takes up available space, pushing footer down */
+      padding: 20px 0;
+    }
+
+    .container {
+      max-width: 1200px;      /* Constrains width on larger screens */
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    h1 {
+      color: var(--primary-color);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    /* 
+     * Referral resources grid layout
+     * Uses CSS Grid for responsive card layout that adapts to screen size
+     */
+    .referral-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));  /* Responsive grid */
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    /* 
+     * Individual referral card styling
+     * Cards use flex layout for consistent height regardless of content
+     * Hover effect with transform provides interactive feedback
+     */
+    .referral-card {
+      background: var(--white);
+      border-radius: var(--border-radius-lg);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease;  /* Smooth animation for hover effect */
+    }
+
+    .referral-card:hover {
+      transform: translateY(-5px);  /* Card slightly rises on hover */
+    }
+
+    .referral-title {
+      color: var(--primary-color);
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .referral-description {
+      color: var(--text-light);
+      margin-bottom: 1.5rem;
+      flex-grow: 1;  /* Pushes button to bottom of card */
+    }
+
+    /* Button styling */
+    .btn {
+      padding: 0.75rem 1rem;
+      border-radius: var(--border-radius-md);
+      font-weight: 500;
+      text-align: center;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background-color: var(--secondary-color);
+      color: white;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--secondary-hover);
+    }
+
+    /* Scroll to top button - hidden by default, shown when scrolling down */
+    #scrollTopBtn {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 99;
+      background-color: var(--secondary-color);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      box-shadow: var(--shadow-lg);
+    }
+
+    #scrollTopBtn:hover {
+      background-color: var(--secondary-hover);
+    }
+
+    /* Footer styling */
+    .footer {
+      margin-top: auto;  /* Pushes footer to bottom */
+      padding: 1rem;
+      background: rgba(255,255,255,0.8);
+      text-align: center;
+      color: var(--text-light);
+    }
+
+    /* 
+     * Responsive design adjustments
+     * On smaller screens, switch to single column layout
+     */
+    @media (max-width: 768px) {
+      .referral-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- 
+  Navigation Bar
+  Provides consistent navigation across all app pages
+  Highlights current page with bold styling
+-->
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="/">💆 MindBalance</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="/music">Music Library</a></li>
+        <li class="nav-item"><a class="nav-link" href="/dashboard">Dashboard</a></li>
+        <li class="nav-item"><a class="nav-link" href="/chatbot">Chatbot</a></li>
+        <!-- Self-referral link is bold to show current page -->
+        <li class="nav-item"><a class="nav-link fw-bold" style="color: var(--primary-color) !important;" href="/self-referral">Self-Referral</a></li>
+        <li class="nav-item"><a class="nav-link" href="/mood-graph">Mood Graph</a></li>
+        <li class="nav-item"><a class="nav-link" href="/about-us">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="/journal">Journal</a></li>
+        <li class="nav-item"><a class="nav-link" href="/profile">Profile</a></li>
+        <li class="nav-item"><a class="nav-link text-danger" href="/logout">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- 
+  Main Content Section 
+  Displays mental health self-referral resources in a card grid
+-->
+<div class="page-content">
+  <div class="container">
+    <h1 class="text-center">🌐 Self-Referral Websites</h1>
+    <p class="text-center mb-4">Explore trusted resources to support your mental health and well-being.</p>
+
+    <!-- 
+      Resource Cards Grid
+      Dynamic content populated from Flask backend
+      Displays organizations that offer mental health support
+    -->
+    <div class="referral-grid">
+      <!-- Loop through referral links provided by backend -->
+      {% for link in referral_links %}
+      <div class="card referral-card">
+        <h2 class="referral-title">{{ link.name }}</h2>
+        <p class="referral-description">Trusted mental health support and resources.</p>
+        <a href="{{ link.url }}" target="_blank" class="btn btn-primary">Visit Website</a>
+      </div>
+      {% endfor %}
+
+      <!-- 
+        Fallback content if no referral links are provided
+        Ensures page always shows helpful resources
+      -->
+      {% if not referral_links %}
+      <div class="card referral-card">
+        <h2 class="referral-title">Mind UK</h2>
+        <p class="referral-description">Trusted mental health support and resources.</p>
+        <a href="https://www.mind.org.uk/" target="_blank" class="btn btn-primary">Visit Website</a>
+      </div>
+
+      <div class="card referral-card">
+        <h2 class="referral-title">Samaritans</h2>
+        <p class="referral-description">Trusted mental health support and resources.</p>
+        <a href="https://www.samaritans.org/" target="_blank" class="btn btn-primary">Visit Website</a>
+      </div>
+
+      <div class="card referral-card">
+        <h2 class="referral-title">Young Minds</h2>
+        <p class="referral-description">Trusted mental health support and resources.</p>
+        <a href="https://www.youngminds.org.uk/" target="_blank" class="btn btn-primary">Visit Website</a>
+      </div>
+
+      <div class="card referral-card">
+        <h2 class="referral-title">NHS IAPT (London)</h2>
+        <p class="referral-description">Find self-referral mental health services in London.</p>
+        <a href="https://www.nhs.uk/service-search/mental-health/find-a-psychological-therapies-service/london" target="_blank" class="btn btn-primary">Visit Website</a>
+      </div>
+
+      <div class="card referral-card">
+        <h2 class="referral-title">NHS IAPT (Manchester)</h2>
+        <p class="referral-description">Access talking therapy services in Manchester.</p>
+        <a href="https://www.nhs.uk/service-search/mental-health/find-a-psychological-therapies-service/manchester" target="_blank" class="btn btn-primary">Visit Website</a>
+      </div>
+
+      <div class="card referral-card">
+        <h2 class="referral-title">NHS IAPT (Nationwide)</h2>
+        <p class="referral-description">Explore NHS IAPT services across the UK.</p>
+        <a href="https://www.nhs.uk/service-search/mental-health/find-a-psychological-therapies-service/" target="_blank" class="btn btn-primary">Visit Website</a>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<!-- Scroll to Top Button - appears when user scrolls down -->
+<button id="scrollTopBtn" title="Go to top">⬆️</button>
+
+<!-- Footer with copyright information -->
+<footer class="footer">
+  <p>&copy; 2025 MindBalance | All Rights Reserved</p>
+</footer>
+
+<!-- 
+  JavaScript Dependencies and Custom Scripts
+  Bootstrap for responsive components
+  Custom script for scroll-to-top functionality
+-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Scroll to Top Button functionality
+  // Shows/hides the button based on scroll position
+  window.onscroll = function() {scrollFunction()};
+
+  function scrollFunction() {
+    const scrollTopBtn = document.getElementById("scrollTopBtn");
+    // Show button only when scrolled down 100px
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+      scrollTopBtn.style.display = "block";
+    } else {
+      scrollTopBtn.style.display = "none";
+    }
+  }
+
+  // Attach click event to scroll button when DOM is fully loaded
+  document.addEventListener('DOMContentLoaded', function() {
+    const scrollTopBtn = document.getElementById("scrollTopBtn");
+    scrollTopBtn.addEventListener('click', function() {
+      // Smooth scroll to top when button is clicked
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+</script>
+
+</body>
+</html>
