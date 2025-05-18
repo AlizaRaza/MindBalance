@@ -1,0 +1,5 @@
+2025-05-14 00:37:23,835 - app - ERROR - Error in fetch_music(): http status: 404, code: -1 - https://api.spotify.com/v1/recommendations?limit=10&seed_artists=56oDRnqbIiwx4mymNEv7dS%2C0EmeFodog0BfCgMzAIvKQp%2C66CXWjxzNUsdJxJ2JdwvnR&seed_genres=pop:
+ None, reason: None
+2025-05-14 00:37:23,842 - app - INFO - Music API response - Found 2 tracks, 2 artists
+2025-05-14 00:37:41,984 - app - INFO - Session before dashboard: <SecureCookieSession {'_permanent': True, 'user_id': 1}>
+2025-05-14 00:37:53,955 - app - INFO - Session before dashboard: <SecureCookieSession {'_permanent': True, 'user_id': 1}>
