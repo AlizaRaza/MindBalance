@@ -1,0 +1,82 @@
+2025-04-27 12:20:02,668 - app - ERROR - Server error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+2025-04-27 12:20:09,229 - app - ERROR - Exception on /journal/edit/8 [GET]
+Traceback (most recent call last):
+  File "/Users/alizaraza/Desktop/project-root copy 7/.venv/lib/python3.10/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/alizaraza/Desktop/project-root copy 7/.venv/lib/python3.10/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/alizaraza/Desktop/project-root copy 7/.venv/lib/python3.10/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/alizaraza/Desktop/project-root copy 7/.venv/lib/python3.10/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/alizaraza/Desktop/project-root copy 7/app.py", line 994, in edit_journal
+    entry = JournalEntry@app.route('/journal/edit/<int:entry_id>', methods=['GET', 'POST'])
+  File "/Users/alizaraza/Desktop/project-root copy 7/.venv/lib/python3.10/site-packages/flask/sansio/scaffold.py", line 46, in wrapper_func
+    self._check_setup_finished(f_name)
+  File "/Users/alizaraza/Desktop/project-root copy 7/.venv/lib/python3.10/site-packages/flask/sansio/app.py", line 415, in _check_setup_finished
+    raise AssertionError(
+AssertionError: The setup method 'route' can no longer be called on the application. It has already handled its first request, any changes will not be applied consistently.
+Make sure all imports, decorators, functions, etc. needed to set up the application are done before running it.
+2025-04-27 12:20:09,230 - app - ERROR - Server error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+2025-04-27 12:27:04,744 - app - INFO - TensorFlow model loaded successfully
+2025-04-27 12:27:04,744 - app - INFO - Academic resources loaded successfully
+2025-04-27 12:27:04,749 - app - ERROR - Error creating database indexes: Textual SQL expression 'CREATE INDEX IF NOT EXIST...' should be explicitly declared as text('CREATE INDEX IF NOT EXIST...')
+2025-04-27 12:27:04,749 - app - INFO - Spotify API configured successfully
+2025-04-27 12:27:15,724 - app - INFO - Session before dashboard: <SecureCookieSession {'_flashes': [('success', '✅ Login successful!')], '_permanent': True, 'user_id': 3}>
+2025-04-27 12:27:41,669 - app - INFO - Session before dashboard: <SecureCookieSession {'_permanent': True, 'user_id': 3}>
+2025-04-27 12:27:56,306 - app - INFO - Music API request - Emotion: relaxing, Gender: male, Genre: jazz
+2025-04-27 12:27:56,307 - app - INFO - Spotify API → Emotion: relaxing, Genre: jazz, Gender: male, Artists: ['2h93pZq0e7k5yf4dywlkpM', '1Xyo4u8uXC1ZmMpatF05PJ', '4V8LLVI7PbaPR0K2TGSxFF']
+2025-04-27 12:27:56,395 - app - ERROR - Error in fetch_music(): http status: 404, code: -1 - https://api.spotify.com/v1/recommendations?limit=10&seed_artists=2h93pZq0e7k5yf4dywlkpM%2C1Xyo4u8uXC1ZmMpatF05PJ%2C4V8LLVI7PbaPR0K2TGSxFF&seed_genres=jazz:
+ None, reason: None
+2025-04-27 12:27:56,399 - app - INFO - Music API response - Found 1 tracks, 2 artists
+2025-04-27 12:27:59,929 - app - INFO - Music API request - Emotion: relaxing, Gender: female, Genre: jazz
+2025-04-27 12:27:59,929 - app - INFO - Spotify API → Emotion: relaxing, Genre: jazz, Gender: female, Artists: ['6qqNVTkY8uBg9cP3Jd7DAH', '0C8ZW7ezQVs4URX5aX7Kqx', '2wIVse2owClT7go1WT98tk']
+2025-04-27 12:27:59,961 - app - ERROR - Error in fetch_music(): http status: 404, code: -1 - https://api.spotify.com/v1/recommendations?limit=10&seed_artists=6qqNVTkY8uBg9cP3Jd7DAH%2C0C8ZW7ezQVs4URX5aX7Kqx%2C2wIVse2owClT7go1WT98tk&seed_genres=jazz:
+ None, reason: None
+2025-04-27 12:27:59,962 - app - INFO - Music API response - Found 1 tracks, 2 artists
+2025-04-27 12:28:42,258 - app - INFO - Session before dashboard: <SecureCookieSession {'_flashes': [('success', '✅ Login successful!')], '_permanent': True, 'user_id': 1}>
+2025-04-27 13:42:50,562 - app - INFO - Session before dashboard: <SecureCookieSession {'_permanent': True, 'user_id': 1}>
+2025-04-27 13:42:54,978 - app - INFO - Session before dashboard: <SecureCookieSession {'_permanent': True, 'user_id': 1}>
+2025-04-27 13:49:06,038 - app - INFO - Session before dashboard: <SecureCookieSession {'_permanent': True, 'user_id': 1}>
+2025-04-27 13:49:09,140 - app - INFO - Session before dashboard: <SecureCookieSession {'_permanent': True, 'user_id': 1}>
+2025-04-27 13:50:50,772 - app - ERROR - Error in registration: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+2025-04-27 13:50:55,632 - app - ERROR - Error in registration: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+2025-04-27 13:51:07,991 - app - INFO - Session before dashboard: <SecureCookieSession {'_flashes': [('success', '✅ Login successful!')], '_permanent': True, 'user_id': 1}>
+2025-04-27 13:53:12,719 - app - ERROR - Error in registration: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+2025-04-27 13:54:38,641 - app - INFO - Session before dashboard: <SecureCookieSession {'_flashes': [('success', '✅ Login successful!')], '_permanent': True, 'user_id': 1}>
+2025-04-27 13:58:25,165 - app - INFO - Music API request - Emotion: sad, Gender: all, Genre: hiphop
+2025-04-27 13:58:25,166 - app - INFO - Spotify API → Emotion: sad, Genre: hip-hop, Gender: all, Artists: ['4GNC7GD6oZMSxPGyXy4MNB', '26VFTg2z8YR0cCuwLzESi2', '6qqNVTkY8uBg9cP3Jd7DAH']
+2025-04-27 13:58:25,343 - app - ERROR - Error in fetch_music(): http status: 404, code: -1 - https://api.spotify.com/v1/recommendations?limit=10&seed_artists=4GNC7GD6oZMSxPGyXy4MNB%2C26VFTg2z8YR0cCuwLzESi2%2C6qqNVTkY8uBg9cP3Jd7DAH&seed_genres=hip-hop:
+ None, reason: None
+2025-04-27 13:58:25,348 - app - INFO - Music API response - Found 2 tracks, 2 artists
+2025-04-27 14:05:59,722 - app - INFO - TensorFlow model loaded successfully
+2025-04-27 14:05:59,723 - app - INFO - Academic resources loaded successfully
+2025-04-27 14:05:59,729 - app - ERROR - Error creating database indexes: Textual SQL expression 'CREATE INDEX IF NOT EXIST...' should be explicitly declared as text('CREATE INDEX IF NOT EXIST...')
+2025-04-27 14:05:59,729 - app - INFO - Spotify API configured successfully
+2025-04-27 18:07:42,723 - app - INFO - TensorFlow model loaded successfully
+2025-04-27 18:07:42,724 - app - INFO - Academic resources loaded successfully
+2025-04-27 18:07:42,731 - app - ERROR - Error creating database indexes: Textual SQL expression 'CREATE INDEX IF NOT EXIST...' should be explicitly declared as text('CREATE INDEX IF NOT EXIST...')
+2025-04-27 18:07:42,731 - app - INFO - Spotify API configured successfully
+2025-04-27 18:28:47,315 - app - INFO - TensorFlow model loaded successfully
+2025-04-27 18:28:47,316 - app - INFO - Academic resources loaded successfully
+2025-04-27 18:28:47,320 - app - ERROR - Error creating database indexes: Textual SQL expression 'CREATE INDEX IF NOT EXIST...' should be explicitly declared as text('CREATE INDEX IF NOT EXIST...')
+2025-04-27 18:28:47,321 - app - INFO - Spotify API configured successfully
+2025-04-27 18:29:06,228 - app - INFO - Session before dashboard: <SecureCookieSession {'_flashes': [('success', '✅ Login successful!')], '_permanent': True, 'user_id': 1}>
+2025-04-27 18:31:56,715 - app - INFO - Session before dashboard: <SecureCookieSession {'_flashes': [('success', '✅ Login successful!')], '_permanent': True, 'user_id': 1}>
+2025-04-27 19:48:13,548 - app - INFO - TensorFlow model loaded successfully
+2025-04-27 19:48:13,548 - app - INFO - Academic resources loaded successfully
+2025-04-27 19:48:13,556 - app - ERROR - Error creating database indexes: Textual SQL expression 'CREATE INDEX IF NOT EXIST...' should be explicitly declared as text('CREATE INDEX IF NOT EXIST...')
+2025-04-27 19:48:13,556 - app - INFO - Spotify API configured successfully
+2025-04-27 19:49:12,978 - app - INFO - Session before dashboard: <SecureCookieSession {'_flashes': [('success', '✅ Login successful!')], '_permanent': True, 'user_id': 1}>
+2025-04-27 20:44:35,336 - app - INFO - Session before dashboard: <SecureCookieSession {'_permanent': True, 'user_id': 1}>
+2025-04-27 20:49:03,115 - app - INFO - TensorFlow model loaded successfully
+2025-04-27 20:49:03,115 - app - INFO - Academic resources loaded successfully
+2025-04-27 20:49:03,122 - app - ERROR - Error creating database indexes: Textual SQL expression 'CREATE INDEX IF NOT EXIST...' should be explicitly declared as text('CREATE INDEX IF NOT EXIST...')
+2025-04-27 20:49:03,122 - app - INFO - Spotify API configured successfully
+2025-04-27 20:49:22,161 - app - INFO - Session before dashboard: <SecureCookieSession {'_flashes': [('success', '✅ Login successful!')], '_permanent': True, 'user_id': 1}>
+2025-04-27 20:50:45,080 - app - INFO - TensorFlow model loaded successfully
+2025-04-27 20:50:45,080 - app - INFO - Academic resources loaded successfully
+2025-04-27 20:50:45,086 - app - ERROR - Error creating database indexes: Textual SQL expression 'CREATE INDEX IF NOT EXIST...' should be explicitly declared as text('CREATE INDEX IF NOT EXIST...')
+2025-04-27 20:50:45,086 - app - INFO - Spotify API configured successfully
+2025-04-27 20:50:56,221 - app - INFO - Session before dashboard: <SecureCookieSession {'_flashes': [('success', '✅ Login successful!')], '_permanent': True, 'user_id': 1}>
+2025-04-27 20:52:49,751 - app - INFO - TensorFlow model loaded successfully
